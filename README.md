@@ -29,7 +29,7 @@
 │   ├── hooks
 │   ├── pages # <-- pages
 │   ├── public
-│   ├── rquery
+│   ├── redux
 │   ├── styles
 │   ├── types
 │   └── utils

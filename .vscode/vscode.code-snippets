@@ -1,0 +1,42 @@
+{
+  // Place your pipcarwebpartner workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  "Typescript React forwardRef component": {
+    "scope": "typescriptreact",
+    "prefix": "rfc-forwardRef",
+    "body": [
+      "import { forwardRef, ForwardRefRenderFunction } from 'react'",
+      "",
+      "type T${TM_FILENAME_BASE}Props = React.${3:HTML}Attributes<HTML${2:Div}Element> & {};",
+      "",
+      "const Internal${TM_FILENAME_BASE}: ForwardRefRenderFunction<HTML${2:Div}Element,T${TM_FILENAME_BASE}Props> = (",
+      "  {},",
+      "  forwardedRef,",
+      ") => {",
+      "  return <${1:div} ref={forwardedRef}>${TM_FILENAME_BASE}</${1:div}>",
+      "};",
+      "",
+      "export default forwardRef(Internal${TM_FILENAME_BASE});"
+    ]
+  },
+  "Typescript default React component": {
+    "scope": "typescriptreact",
+    "prefix": "rfc-default",
+    "body": [
+      "import React from 'react'",
+      "",
+      "type T${TM_FILENAME_BASE}Props = {};",
+      "",
+      "const ${TM_FILENAME_BASE} = ({}: T${TM_FILENAME_BASE}Props) => {",
+      "  return <div>${TM_FILENAME_BASE}</div>",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE};"
+    ]
+  }
+}

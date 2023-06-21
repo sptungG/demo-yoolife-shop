@@ -34,22 +34,22 @@ function Page() {
   // };
 
   return (
-    <div className="flex w-screen flex-col items-center justify-center gap-8 p-0">
-      <div className="flex w-2/3 justify-between">
+    <>
+      <header className="mx-auto mb-6 flex w-full max-w-[1000px] justify-between px-6">
         <div className="flex cursor-pointer items-center pt-6">
           <YoolifeIHeader className="h-20 w-40" />
         </div>
         <div className="flex items-end">
           <span className="cursor-pointer text-3xl font-semibold text-primary-50">Đăng nhập</span>
         </div>
-      </div>
-      <div className="relative w-screen">
-        <div className="absolute inset-0 ">
+      </header>
+      <div className="relative flex w-full">
+        <div className="absolute inset-0">
           <Image className="bg-contain" src={backgroundImage} alt="background image" fill />
         </div>
-        <div className="relative flex w-screen items-start justify-around p-10  md:justify-end">
+        <div className="relative mx-auto flex items-start justify-between p-10 md:justify-end">
           <div className="hidden text-center text-2xl font-light md:block md:pe-20 lg:pe-60 xl:pe-80">
-            <YoolifeIContent className="lg:w-96 lg:h-96" />
+            <YoolifeIContent className="lg:h-96 lg:w-96" />
             <div className="pt-6">Một sản phẩm của nền tảng </div>
             <div>YooTek IOT Platform </div>
           </div>
@@ -125,9 +125,9 @@ function Page() {
           </form>
         </div>
       </div>
-      <div className="text-primary-150 w-5/6 ">
+      <div className="mx-auto w-full max-w-[1000px] text-primary-150 ">
         <div className="m-0 mb-7 p-0 text-3xl font-medium">CÔNG NGHỆ CỔ PHẦN YOOTEK HOLDINGS</div>
-        <div className="m-0 grid grid-cols-1 md:grid-cols-3 gap-4 p-0 pb-7">
+        <div className="m-0 grid grid-cols-1 gap-4 p-0 pb-7 md:grid-cols-3">
           <div className="">
             <div className="pb-7 text-xl font-medium ">Liên hệ với chúng tôi</div>
             <div className="flex items-center justify-start pb-4 text-sm font-medium">
@@ -183,7 +183,7 @@ function Page() {
           <span>Copyright © 2021 &nbsp; YooTek Holdings All &nbsp; Right Reserved</span>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

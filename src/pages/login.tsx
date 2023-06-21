@@ -47,86 +47,88 @@ function Page() {
         <div className="absolute inset-0">
           <Image className="bg-contain" src={backgroundImage} alt="background image" fill />
         </div>
-        <div className="relative mx-auto flex items-start justify-between p-10 md:justify-end">
-          <div className="hidden text-center text-2xl font-light md:block md:pe-20 lg:pe-60 xl:pe-80">
-            <YoolifeIContent className="lg:h-96 lg:w-96" />
-            <div className="pt-6">Một sản phẩm của nền tảng </div>
-            <div>YooTek IOT Platform </div>
-          </div>
-          <form
-            // onSubmit={handleSubmit(onSubmit)}
-            className="flex w-full max-w-sm flex-col rounded-2xl bg-white p-8"
-          >
-            <span className="text-center text-2xl font-semibold text-primary-50">
-              Trải nghiệm và khám phá
-            </span>
-            <span className="text-center text-2xl font-semibold text-primary-50">
-              Cùng với YooLife
-            </span>
-
-            <input
-              className="my-5 rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
-              type="text"
-              placeholder="Tên tài Khoản Hoặc Email"
-            />
-
-            <input
-              className=" rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
-              type="password"
-              placeholder="Mật khẩu"
-            />
-            <div className="flex justify-between">
-              <Checkbox className="my-5 flex cursor-pointer items-center justify-start">
-                {({ isSelected }) => (
-                  <>
-                    <div
-                      className={twMerge(
-                        "flex h-5 w-5 items-center justify-center rounded border-2  border-primary-50 transition-all",
-                        isSelected ? "bg-primary-50" : "",
-                      )}
-                    >
-                      <MdCheck className="text-white" />
-                    </div>
-                    <span className="ps-2 font-normal ">Ghi nhớ đăng nhập</span>
-                  </>
-                )}
-              </Checkbox>
-              <span className="flex cursor-pointer items-center text-primary-50">
-                Quên mật khẩu ?
-              </span>
+        <div className="relative flex w-full py-6">
+          <div className="mx-auto flex w-full max-w-[1000px] justify-center md:justify-between ">
+            <div className=" hidden self-center text-center text-2xl font-light md:block ">
+              <YoolifeIContent className="lg:h-96 lg:w-96" />
+              <div className="pt-6">Một sản phẩm của nền tảng </div>
+              <div>YooTek IOT Platform </div>
             </div>
-
-            <Button
-              // style={{ backgroundColor: "#339FD9" }}
-              className="mt-4 rounded-2xl bg-primary-50 px-7 py-2.5 text-base font-semibold text-white"
-              // icon={<BsFillPersonPlusFill className="mr-2" />}
-              type="submit"
-
-              // isLoading={isSubmitting}
+            <form
+              // onSubmit={handleSubmit(onSubmit)}
+              className="z-10 flex w-fit flex-col rounded-2xl bg-white p-8 me-0 md:me-8 lg:me-0"
             >
-              Đăng nhập
-            </Button>
-            <span className="my-4 cursor-pointer text-center text-primary-50">
-              Hoặc đăng nhập với
-            </span>
-            <div className="flex justify-around px-10 py-9">
-              <MdFacebook style={{ color: "#1877F2" }} className="h-12 w-12 cursor-pointer " />
-              <div className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-primary-1000 ">
-                <FcGoogle className="h-8 w-8" />
+              <span className="text-center text-2xl font-semibold text-primary-50">
+                Trải nghiệm và khám phá
+              </span>
+              <span className="text-center text-2xl font-semibold text-primary-50">
+                Cùng với YooLife
+              </span>
+
+              <input
+                className="my-5 rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
+                type="text"
+                placeholder="Tên tài Khoản Hoặc Email"
+              />
+
+              <input
+                className=" rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
+                type="password"
+                placeholder="Mật khẩu"
+              />
+              <div className="flex justify-between">
+                <Checkbox className="my-5 mr-10  flex cursor-pointer items-center justify-start">
+                  {({ isSelected }) => (
+                    <>
+                      <div
+                        className={twMerge(
+                          "flex h-5 w-5 items-center justify-center rounded border-2  border-primary-50 transition-all",
+                          isSelected ? "bg-primary-50" : "",
+                        )}
+                      >
+                        <MdCheck className="text-white" />
+                      </div>
+                      <span className="ps-2 font-normal ">Ghi nhớ đăng nhập</span>
+                    </>
+                  )}
+                </Checkbox>
+                <span className="flex cursor-pointer items-center text-primary-50">
+                  Quên mật khẩu ?
+                </span>
               </div>
-              <div className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-primary-1000 bg-black ">
-                <FaApple className="h-9 w-9 text-white" />
+
+              <Button
+                // style={{ backgroundColor: "#339FD9" }}
+                className="mt-4 rounded-2xl bg-primary-50 px-7 py-2.5 text-base font-semibold text-white"
+                // icon={<BsFillPersonPlusFill className="mr-2" />}
+                type="submit"
+
+                // isLoading={isSubmitting}
+              >
+                Đăng nhập
+              </Button>
+              <span className="my-4 cursor-pointer text-center text-primary-50">
+                Hoặc đăng nhập với
+              </span>
+              <div className="flex justify-around px-10 py-9">
+                <MdFacebook style={{ color: "#1877F2" }} className="h-12 w-12 cursor-pointer " />
+                <div className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-primary-1000 ">
+                  <FcGoogle className="h-8 w-8" />
+                </div>
+                <div className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-primary-1000 bg-black ">
+                  <FaApple className="h-9 w-9 text-white" />
+                </div>
               </div>
-            </div>
-            <div className="cursor-pointer text-center">
-              Bạn chưa có tài khoản?
-              <span className="text-primary-50"> Đăng ký ngay</span>
-            </div>
-          </form>
+              <div className="cursor-pointer text-center">
+                Bạn chưa có tài khoản?
+                <span className="text-primary-50"> Đăng ký ngay</span>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-      <div className="mx-auto w-full max-w-[1000px] text-primary-150 ">
-        <div className="m-0 mb-7 p-0 text-3xl font-medium">CÔNG NGHỆ CỔ PHẦN YOOTEK HOLDINGS</div>
+      <div className="mx-auto w-full lg:max-w-[1000px] p-5  text-primary-150 ">
+        <div className="m-0 my-7 p-0 text-3xl font-medium">CÔNG NGHỆ CỔ PHẦN YOOTEK HOLDINGS</div>
         <div className="m-0 grid grid-cols-1 gap-4 p-0 pb-7 md:grid-cols-3">
           <div className="">
             <div className="pb-7 text-xl font-medium ">Liên hệ với chúng tôi</div>
@@ -166,7 +168,7 @@ function Page() {
               <span>IMAX (Android)</span>
             </div>
 
-            <div className="pe-10 xl:pe-40">
+            <div className="pe-10 ">
               <div>Kết nối với YooTek</div>
               <div className="flex justify-start py-6">
                 <MdFacebook className="me-2 h-8 w-8 cursor-pointer" />

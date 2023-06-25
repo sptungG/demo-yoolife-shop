@@ -3,6 +3,7 @@ import NextNProgress from "nextjs-progressbar";
 import { I18nProvider, SSRProvider } from "react-aria";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import GlobalToastRegion from "src/components/toast/GlobalToastRegion";
 import store, { persistor } from "src/redux/store";
 import "src/styles/globals.css";
 
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <PersistGate loading={null} persistor={persistor}>
             <I18nProvider>
               <Component {...pageProps} />
+              <GlobalToastRegion />
             </I18nProvider>
           </PersistGate>
         </Provider>

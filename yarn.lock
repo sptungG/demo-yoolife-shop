@@ -1610,6 +1610,17 @@
     "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.4.14"
 
+"@react-aria/landmark@3.0.0-beta.1":
+  version "3.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/landmark/-/landmark-3.0.0-beta.1.tgz#36e20c0fff7772ab61f2cf7db22b5d408df69c69"
+  integrity sha512-mtdHg+miia1IUm4JYzZpFQzPLHxR+4YfTTO1XkE2yjW0B8REf8yy4+pR3wODXkV8ASWb7bdFllwRe5z/hJkqOw==
+  dependencies:
+    "@react-aria/focus" "^3.12.1"
+    "@react-aria/utils" "^3.17.0"
+    "@react-types/shared" "^3.18.1"
+    "@swc/helpers" "^0.4.14"
+    use-sync-external-store "^1.2.0"
+
 "@react-aria/link@^3.5.1":
   version "3.5.1"
   resolved "https://registry.npmjs.org/@react-aria/link/-/link-3.5.1.tgz"
@@ -1902,6 +1913,20 @@
     "@react-aria/utils" "^3.17.0"
     "@react-types/shared" "^3.18.1"
     "@react-types/textfield" "^3.7.2"
+    "@swc/helpers" "^0.4.14"
+
+"@react-aria/toast@^3.0.0-beta.1":
+  version "3.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/toast/-/toast-3.0.0-beta.1.tgz#555e40d1ffe56cd83e879bc1bc7e6302ef15c6a1"
+  integrity sha512-WOXiU2fay1hYO182eSzKiBVALk4i6Plt6KjKFinldrwyIHwFWZKW1VZDJYMxBo/rI2ar85grO0JCXtufxJxEFA==
+  dependencies:
+    "@react-aria/i18n" "^3.7.2"
+    "@react-aria/interactions" "^3.15.1"
+    "@react-aria/landmark" "3.0.0-beta.1"
+    "@react-aria/utils" "^3.17.0"
+    "@react-stately/toast" "3.0.0-beta.0"
+    "@react-types/button" "^3.7.3"
+    "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.4.14"
 
 "@react-aria/toggle@^3.6.1":
@@ -3014,6 +3039,14 @@
     "@react-types/shared" "^3.18.1"
     "@react-types/tabs" "^3.3.0"
     "@swc/helpers" "^0.4.14"
+
+"@react-stately/toast@3.0.0-beta.0", "@react-stately/toast@^3.0.0-beta.0":
+  version "3.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/toast/-/toast-3.0.0-beta.0.tgz#4f43dc4402583f63f2147db9d138d33ad0b06c15"
+  integrity sha512-oQ1i2yD3BM37rNx/RoIwyPE3Cxsk8mQrNfGHvPTH6GQxd8gPXnJgIeRL772sNE5sWruZf0znjDieMmbNd5V/gw==
+  dependencies:
+    "@swc/helpers" "^0.4.14"
+    use-sync-external-store "^1.2.0"
 
 "@react-stately/toggle@^3.5.2":
   version "3.5.2"

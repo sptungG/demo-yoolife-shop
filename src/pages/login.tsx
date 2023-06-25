@@ -1,5 +1,7 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 import { Checkbox } from "react-aria-components";
+import { useForm } from "react-hook-form";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { MdCheck, MdFacebook } from "react-icons/md";
@@ -17,21 +19,40 @@ import {
 } from "src/components/icons";
 import backgroundImage from "src/components/images/background.png";
 import logoBCT1 from "src/components/images/logoBCT1.png";
+import { toastQueue } from "src/components/toast/GlobalToastRegion";
+import { useLoginMutation } from "src/redux/query/auth.query";
 import { twMerge } from "tailwind-merge";
+import * as yup from "yup";
+
+const loginSchema = yup.object({
+  email: yup.string().required("Hãy nhập email của bạn!"),
+  password: yup
+    .string()
+    .min(6, "Mật khẩu cần ít nhất 6 kí tự!")
+    .required("Hãy nhập mật khẩu của bạn!"),
+});
 
 function Page() {
-  // const [loginMutate, { isLoading }] = useLoginMutation();
+  const {
+    handleSubmit,
+    formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
+    register,
+  } = useForm({
+    resolver: yupResolver(loginSchema),
+    mode: "onChange",
+  });
+  const [loginMutate, { isLoading }] = useLoginMutation();
 
-  // const handleSubmit = (formData: any) => {
-  //   loginMutate(formData)
-  //     .unwrap()
-  //     .then(({ result }) => {
-  //       console.log("Đăng nhập thành công");
-  //     })
-  //     .catch((err) => {
-  //       console.error("Đăng nhập thất bại");
-  //     });
-  // };
+  const onSubmit = (formData: any) => {
+    loginMutate(formData)
+      .unwrap()
+      .then(({ result }) => {
+        console.log("Đăng nhập thành công");
+      })
+      .catch((err) => {
+        toastQueue.add({ title: "Đăng nhập thất bại" }, { timeout: 3000 });
+      });
+  };
 
   return (
     <>
@@ -55,8 +76,8 @@ function Page() {
               <div>YooTek IOT Platform </div>
             </div>
             <form
-              // onSubmit={handleSubmit(onSubmit)}
-              className="z-10 flex w-fit flex-col rounded-2xl bg-white p-8 me-0 md:me-8 lg:me-0"
+              onSubmit={handleSubmit(onSubmit)}
+              className="z-10 me-0 flex w-fit flex-col rounded-2xl bg-white p-8 md:me-8 lg:me-0"
             >
               <span className="text-center text-2xl font-semibold text-primary-50">
                 Trải nghiệm và khám phá
@@ -69,12 +90,14 @@ function Page() {
                 className="my-5 rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
                 type="text"
                 placeholder="Tên tài Khoản Hoặc Email"
+                {...register("email")}
               />
 
               <input
                 className=" rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
                 type="password"
                 placeholder="Mật khẩu"
+                {...register("password")}
               />
               <div className="flex justify-between">
                 <Checkbox className="my-5 mr-10  flex cursor-pointer items-center justify-start">
@@ -127,7 +150,7 @@ function Page() {
           </div>
         </div>
       </div>
-      <div className="mx-auto w-full lg:max-w-[1000px] p-5  text-primary-150 ">
+      <div className="mx-auto w-full p-5 text-primary-150  lg:max-w-[1000px] ">
         <div className="m-0 my-7 p-0 text-3xl font-medium">CÔNG NGHỆ CỔ PHẦN YOOTEK HOLDINGS</div>
         <div className="m-0 grid grid-cols-1 gap-4 p-0 pb-7 md:grid-cols-3">
           <div className="">

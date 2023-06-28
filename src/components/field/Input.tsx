@@ -75,9 +75,8 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, TInputProps> = (
           {...props}
           ref={forwardedRef}
           className={twMerge(
-            "w-full rounded border border-gray-300 p-2 outline-none ring-offset-0 transition-all placeholder:text-gray-400 focus:border-primary-700 focus:ring-[1px] focus:ring-primary-700",
-            errorMessage &&
-              "border-red-400 placeholder:text-red-300 focus:border-red-400 focus:ring-red-400",
+            "w-full rounded border  border-gray-300 p-2 outline-none ring-offset-0 transition-all placeholder:text-gray-400 focus:border-primary-700 focus:ring-[1px] focus:ring-primary-700",
+            errorMessage && "border-red-400 placeholder:text-red-300 ",
             className,
             isLoading && "pr-[44px]",
           )}
@@ -96,14 +95,14 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, TInputProps> = (
         {isLoading && <CircleLoading classNameWrapper="absolute inset-y-0 right-0 px-3" />}
       </div>
       {description && (
-        <div {...descriptionProps} className="max-w-full text-ellipsis text-xs line-clamp-1">
+        <div {...descriptionProps} className="line-clamp-1 max-w-full text-ellipsis text-xs">
           {description}
         </div>
       )}
       {errorMessage && (
         <div
           {...errorMessageProps}
-          className="absolute bottom-0 left-0 flex h-5 max-w-full translate-y-full items-start text-ellipsis px-0.5 text-sm text-red-500 line-clamp-1"
+          className="absolute bottom-0 left-0 line-clamp-1 flex h-5 max-w-full translate-y-full items-start text-ellipsis px-0.5 text-sm text-red-500"
         >
           {errorMessage}
         </div>

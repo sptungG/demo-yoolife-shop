@@ -6,6 +6,8 @@ import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { MdCheck, MdFacebook } from "react-icons/md";
 import Button from "src/components/button/Button";
+import Input from "src/components/field/Input";
+import InputPassword from "src/components/field/InputPassword";
 import {
   AndroidIcon,
   AppstoreIcon,
@@ -47,10 +49,24 @@ function Page() {
     loginMutate(formData)
       .unwrap()
       .then(({ result }) => {
-        console.log("Đăng nhập thành công");
+        toastQueue.add(
+          {
+            title: "Đăng nhập thành công",
+            description: "",
+            state: "success",
+          },
+          { timeout: 3000 },
+        );
       })
       .catch((err) => {
-        toastQueue.add({ title: "Đăng nhập thất bại" }, { timeout: 3000 });
+        toastQueue.add(
+          {
+            title: "Đăng nhập thất bại",
+            description: "",
+            state: "error",
+          },
+          { timeout: 3000 },
+        );
       });
   };
 
@@ -82,22 +98,24 @@ function Page() {
               <span className="text-center text-2xl font-semibold text-primary-50">
                 Trải nghiệm và khám phá
               </span>
-              <span className="text-center text-2xl font-semibold text-primary-50">
+              <span className="mb-5 text-center text-2xl font-semibold text-primary-50">
                 Cùng với YooLife
               </span>
 
-              <input
-                className="my-5 rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
+              <Input
+                className="mt-5 rounded-2xl border-2 border-primary-50 bg-white p-2 text-base focus-visible:border-primary-50"
                 type="text"
                 placeholder="Tên tài Khoản Hoặc Email"
                 {...register("email")}
+                errorMessage={errors.email?.message}
               />
 
-              <input
-                className=" rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
-                type="password"
+              <InputPassword
+                className="mt-5 rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
+                // label="Mật khẩu:"
                 placeholder="Mật khẩu"
                 {...register("password")}
+                errorMessage={errors.password?.message}
               />
               <div className="flex justify-between">
                 <Checkbox className="my-5 mr-10  flex cursor-pointer items-center justify-start">
@@ -125,8 +143,7 @@ function Page() {
                 className="mt-4 rounded-2xl bg-primary-50 px-7 py-2.5 text-base font-semibold text-white"
                 // icon={<BsFillPersonPlusFill className="mr-2" />}
                 type="submit"
-
-                // isLoading={isSubmitting}
+                isLoading={isSubmitting}
               >
                 Đăng nhập
               </Button>

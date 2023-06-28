@@ -14,8 +14,8 @@ const InputPassword: ForwardRefRenderFunction<HTMLInputElement, TInputPasswordPr
       ref={forwardedRef}
       {...props}
       type={isHidePassword ? "password" : "text"}
-      className="pr-[44px]"
-      classNameSuffix="text-gray-400 cursor-pointer px-3"
+      className="rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
+      classNameSuffix="text-gray-400 cursor-pointer px-3 "
       suffix={
         isHidePassword ? (
           <MdVisibilityOff onClick={() => setIsHidePassword(false)} size={22} />

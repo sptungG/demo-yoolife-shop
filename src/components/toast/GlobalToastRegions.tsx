@@ -1,27 +1,25 @@
 import { AriaToastProps, useToast, useToastRegion } from "@react-aria/toast";
-import type { ToastState } from "@react-stately/toast";
-import { ToastQueue, useToastQueue } from "@react-stately/toast";
+import { ToastQueue, ToastState, useToastQueue } from "@react-stately/toast";
 import { useRef } from "react";
 import { Button } from "react-aria-components";
 import { createPortal } from "react-dom";
-import { twMerge } from "tailwind-merge";
 
-type TToast = {
-  title?: string;
-  description?: string;
-  state?: string;
-};
+interface MyToast {
+  title: string;
+  description: string;
+}
 
-export const toastQueue = new ToastQueue<TToast>({
+export const toastQueue = new ToastQueue<MyToast>({
   maxVisibleToasts: 5,
 });
 
-type ToastProps = AriaToastProps<TToast> & {
-  state: ToastState<TToast>;
+type ToastProps = AriaToastProps<MyToast> & {
+  state: ToastState<MyToast>;
 };
 
 function Toast({ state, ...props }: ToastProps) {
   const ref = useRef(null);
+
   const { toastProps, titleProps, descriptionProps, closeButtonProps } = useToast(
     props,
     state,
@@ -32,12 +30,7 @@ function Toast({ state, ...props }: ToastProps) {
     <div
       {...toastProps}
       ref={ref}
-      className={twMerge(
-        "flex items-center gap-4 rounded-lg bg-primary-200 px-4 py-3 text-white shadow-md",
-        props.toast.content.state === "success" ? "bg-green-400" : "",
-        props.toast.content.state === "error" ? "bg-red-500" : "",
-        props.toast.content.state === "invalid" ? "bg-yellow-400" : "",
-      )}
+      className="flex items-center gap-4 rounded-lg bg-primary-200 px-4 py-3 shadow-md"
     >
       <div {...titleProps}>{props.toast.content.title}</div>
       <div {...descriptionProps}>{props.toast.content.description}</div>
@@ -48,8 +41,10 @@ function Toast({ state, ...props }: ToastProps) {
 
 type TGlobalToastRegionProps = {};
 
-function GlobalToastRegion({}: TGlobalToastRegionProps) {
-  const stateQueue = useToastQueue<TToast>(toastQueue);
+function GlobalToastRegions({}: TGlobalToastRegionProps) {
+  // Subscribe to it.
+  //   let state = useToastQueue(toastQueue);
+  const stateQueue = useToastQueue<MyToast>(toastQueue);
   const ref = useRef(null);
   const { regionProps } = useToastRegion({}, stateQueue, ref);
 
@@ -70,4 +65,4 @@ function GlobalToastRegion({}: TGlobalToastRegionProps) {
     : null;
 }
 
-export default GlobalToastRegion;
+export default GlobalToastRegions;

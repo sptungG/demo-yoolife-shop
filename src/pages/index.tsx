@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import { useForm } from "react-hook-form";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import Button from "src/components/button/Button";
-import Input from "src/components/field/Input";
-import InputPassword from "src/components/field/InputPassword";
+import Input from "src/components/field/TestInput";
+import InputPassword from "src/components/field/TestInputPassword";
 import * as yup from "yup";
 
 const inter = Inter({ subsets: ["latin"] });

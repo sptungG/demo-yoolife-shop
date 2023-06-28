@@ -27,7 +27,7 @@ import { twMerge } from "tailwind-merge";
 import * as yup from "yup";
 
 const loginSchema = yup.object({
-  email: yup.string().required("Hãy nhập email của bạn!"),
+  email: yup.string().required("Hãy nhập email hoặc tên người dùng của bạn!"),
   password: yup
     .string()
     .min(6, "Mật khẩu cần ít nhất 6 kí tự!")
@@ -103,7 +103,6 @@ function Page() {
               </span>
 
               <Input
-                className="mt-5 rounded-2xl border-2 border-primary-50 bg-white p-2 text-base focus-visible:border-primary-50"
                 type="text"
                 placeholder="Tên tài Khoản Hoặc Email"
                 {...register("email")}
@@ -111,8 +110,6 @@ function Page() {
               />
 
               <InputPassword
-                className="mt-5 rounded-2xl border-2 border-primary-50 bg-white  p-2 text-base focus-visible:border-primary-50"
-                // label="Mật khẩu:"
                 placeholder="Mật khẩu"
                 {...register("password")}
                 errorMessage={errors.password?.message}

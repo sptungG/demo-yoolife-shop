@@ -33,15 +33,15 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, TInputProps> = (
     validationState,
   });
   return (
-    <div className={twMerge("relative mb-5", classNameWrapper)}>
+    <div className={twMerge("relative mb-8", classNameWrapper)}>
       <div className="group relative">
         <input
           {...fieldProps}
           {...props}
           ref={forwardedRef}
           className={twMerge(
-            " w-full rounded-2xl border-2 border-primary-50 bg-white p-2 text-base focus-visible:outline-none active:border-primary-50",
-            errorMessage && "",
+            " w-full rounded-2xl border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-primary-50",
+            errorMessage && "border-red-400 text-red-400 active:border-red-500",
             className,
           )}
         />
@@ -50,7 +50,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, TInputProps> = (
             className={twMerge(
               "absolute inset-y-0 right-0 flex select-none items-center",
               classNameSuffix,
-              errorMessage && "",
+              errorMessage && "text-red-400 hover:text-red-400",
             )}
           >
             {suffix}

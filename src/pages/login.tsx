@@ -114,8 +114,8 @@ function Page() {
                 {...register("password")}
                 errorMessage={errors.password?.message}
               />
-              <div className="flex justify-between">
-                <Checkbox className="my-5 mr-10  flex cursor-pointer items-center justify-start">
+              <div className="flex items-start justify-between">
+                <Checkbox className="mr-5 flex cursor-pointer items-center justify-start">
                   {({ isSelected }) => (
                     <>
                       <div

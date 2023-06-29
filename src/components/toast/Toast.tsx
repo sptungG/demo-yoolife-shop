@@ -27,7 +27,7 @@ function Toast({ state, ...props }: ToastProps) {
       <div {...titleProps}>{props.toast.content.title}</div>
       <div {...descriptionProps}>{props.toast.content.description}</div>
       <Button className="" {...closeButtonProps}>
-        <MdDangerous />
+        <MdDangerous className="hover:outline-none" />
       </Button>
     </div>
   );

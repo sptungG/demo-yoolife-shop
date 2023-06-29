@@ -40,7 +40,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, TInputProps> = (
           {...props}
           ref={forwardedRef}
           className={twMerge(
-            " w-full rounded-2xl border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-primary-50",
+            " w-full rounded-2xl border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300",
             errorMessage && "border-red-400 text-red-400 active:border-red-500",
             className,
           )}

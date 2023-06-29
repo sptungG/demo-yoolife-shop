@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@adobe/react-spectrum": "^3.27.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.1.1",
     "@react-aria/toast": "^3.0.0-beta.1",
     "@react-stately/toast": "^3.0.0-beta.0",
@@ -40,6 +42,7 @@
     "redux-deep-persist": "^1.0.7",
     "redux-persist": "^6.0.0",
     "sharp": "^0.32.1",
+    "styled-components": "^6.0.1",
     "swr": "^2.1.5",
     "tailwind-merge": "^1.13.1",
     "typescript": "5.1.3",

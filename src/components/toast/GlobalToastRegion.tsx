@@ -1,10 +1,9 @@
-import { AriaToastProps, useToast, useToastRegion } from "@react-aria/toast";
+import { AriaToastProps, useToastRegion } from "@react-aria/toast";
 import type { ToastState } from "@react-stately/toast";
 import { ToastQueue, useToastQueue } from "@react-stately/toast";
 import { useRef } from "react";
-import { Button } from "react-aria-components";
 import { createPortal } from "react-dom";
-import { twMerge } from "tailwind-merge";
+import Toast from "./Toast";
 
 type TToast = {
   title?: string;
@@ -12,39 +11,13 @@ type TToast = {
   state?: string;
 };
 
-export const toastQueue = new ToastQueue<TToast>({
-  maxVisibleToasts: 5,
-});
-
-type ToastProps = AriaToastProps<TToast> & {
+export type ToastProps = AriaToastProps<TToast> & {
   state: ToastState<TToast>;
 };
 
-function Toast({ state, ...props }: ToastProps) {
-  const ref = useRef(null);
-  const { toastProps, titleProps, descriptionProps, closeButtonProps } = useToast(
-    props,
-    state,
-    ref,
-  );
-
-  return (
-    <div
-      {...toastProps}
-      ref={ref}
-      className={twMerge(
-        "flex items-center gap-4 rounded-lg bg-primary-200 px-4 py-3 text-white shadow-md",
-        props.toast.content.state === "success" ? "bg-green-400" : "",
-        props.toast.content.state === "error" ? "bg-red-500" : "",
-        props.toast.content.state === "invalid" ? "bg-yellow-400" : "",
-      )}
-    >
-      <div {...titleProps}>{props.toast.content.title}</div>
-      <div {...descriptionProps}>{props.toast.content.description}</div>
-      <Button {...closeButtonProps}>x</Button>
-    </div>
-  );
-}
+export const toastQueue = new ToastQueue<TToast>({
+  maxVisibleToasts: 5,
+});
 
 type TGlobalToastRegionProps = {};
 

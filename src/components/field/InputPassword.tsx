@@ -8,18 +8,18 @@ const InputPassword: ForwardRefRenderFunction<HTMLInputElement, TInputPasswordPr
   props,
   forwardedRef,
 ) => {
-  const [isHidePassword, setIsHidePassword] = useState(true);
+  const [hidePassword, setHidePassword] = useState(true);
   return (
     <Input
       ref={forwardedRef}
       {...props}
-      type={isHidePassword ? "password" : "text"}
-      classNameSuffix="text-gray-400 cursor-pointer px-3 bottom-0 left-50"
+      type={hidePassword ? "password" : "text"}
+      classNameSuffix="text-gray-400 cursor-pointer px-3 bottom-0 left-50 z-10  hover:text-black "
       suffix={
-        isHidePassword ? (
-          <MdVisibilityOff onClick={() => setIsHidePassword(false)} size={22} />
+        hidePassword ? (
+          <MdVisibilityOff className="bg-white" onClick={() => setHidePassword(false)} size={22} />
         ) : (
-          <MdVisibility onClick={() => setIsHidePassword(true)} size={22} />
+          <MdVisibility className="bg-white" onClick={() => setHidePassword(true)} size={22} />
         )
       }
     />

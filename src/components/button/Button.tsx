@@ -8,6 +8,7 @@ import useRippleAnywhere from "../shared/useRippleAnywhere";
 type TButtonProps = AriaButtonProps<"button"> & {
   className?: string;
   classNameHover?: string;
+  buttonRef?: any;
   classNameDisabled?: string;
   classNameFocus?: string;
   classNameRipple?: string;
@@ -17,6 +18,7 @@ type TButtonProps = AriaButtonProps<"button"> & {
   form?: string;
   name?: string;
   value?: string;
+  style?: any;
 };
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, TButtonProps> = (

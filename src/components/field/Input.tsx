@@ -1,4 +1,4 @@
-import { forwardRef, ForwardRefRenderFunction, InputHTMLAttributes } from "react";
+import { forwardRef, ForwardRefRenderFunction, InputHTMLAttributes, ReactElement } from "react";
 import { AriaFieldProps, useField } from "react-aria";
 import { twMerge } from "tailwind-merge";
 
@@ -6,6 +6,7 @@ export type TBaseInputProps = InputHTMLAttributes<HTMLInputElement>;
 
 export type TInputProps = Omit<TBaseInputProps, "prefix" | "suffix"> &
   AriaFieldProps & {
+    prefix?: React.ReactNode;
     suffix?: React.ReactNode;
     classNamePrefix?: string;
     classNameSuffix?: string;
@@ -17,7 +18,9 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, TInputProps> = (
   {
     className,
     classNameWrapper,
+    prefix,
     suffix,
+    classNamePrefix,
     classNameSuffix,
     errorMessage,
     id,
@@ -33,14 +36,25 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, TInputProps> = (
     validationState,
   });
   return (
-    <div className={twMerge("relative mb-8", classNameWrapper)}>
+    <div className={twMerge("relative ", classNameWrapper)}>
       <div className="group relative">
+      {!!prefix && (
+          <div
+            className={twMerge(
+              "absolute inset-y-0 left-0 flex select-none items-center",
+              classNamePrefix,
+              errorMessage && "text-red-300",
+            )}
+          >
+            {prefix}
+          </div>
+        )}
         <input
           {...fieldProps}
           {...props}
           ref={forwardedRef}
           className={twMerge(
-            " w-full rounded-2xl border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300",
+            " w-full rounded-2xl ",
             errorMessage && "border-red-400 text-red-400 active:border-red-500",
             className,
           )}

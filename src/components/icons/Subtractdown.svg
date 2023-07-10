@@ -1,0 +1,20 @@
+<svg width="34" height="36" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="34" height="36" fill="#F5F5F5"/>
+<g id="Homepage" clip-path="url(#clip0_1473_17702)">
+<rect width="1920" height="2291" transform="translate(-268 -287)" fill="white"/>
+<rect id="Rectangle 2597" x="-268" y="-287" width="317" height="2291" fill="white"/>
+<g id="Frame 12185">
+<g id="Frame 12253">
+<g id="Group 11810">
+<path id="Rectangle 2616" d="M-238 -41.5C-238 -64.9721 -218.972 -84 -195.5 -84H34V1H-195.5C-218.972 1 -238 -18.0279 -238 -41.5Z" fill="#F1F2F8"/>
+<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M-5.55135e-06 0.724136H1H34V36C34 16.5177 19.2254 0.724136 1 0.724136C0.665479 0.724136 0.33212 0.729458 -5.5507e-06 0.740025L-5.55135e-06 0.724136Z" fill="#F1F2F8"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_1473_17702">
+<rect width="1920" height="2291" fill="white" transform="translate(-268 -287)"/>
+</clipPath>
+</defs>
+</svg>

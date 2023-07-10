@@ -20,8 +20,13 @@ module.exports = {
           900: "#000552",
           1000: "#00012b",
           50: "#339FD9",
+          250: "#F1F2F8", // nen o trang homepage
+          350: "#878A9C", // nen chu trang homepage
           150: "#707386",
-          
+          1500: "#A1C4FD", //linear flashsale1
+          1600: "#C2E9FB", //linear flashsale1
+          1700: "#F6D365", //linear flashsale2
+          1800: "#FDA085", //linear flashsale2
         },
       },
       backgroundImage: {
@@ -33,6 +38,11 @@ module.exports = {
           from: { transform: "scale(0)", opacity: 1.2 },
           to: { transform: "scale(1.1)", opacity: 0 },
         },
+      },
+      width: {
+        128: "360px",
+        192: "420px",
+        256: "500px",
       },
     },
   },

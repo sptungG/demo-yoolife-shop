@@ -1,11 +1,13 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
-import { Checkbox } from "react-aria-components";
-import { useForm } from "react-hook-form";
+// import { Checkbox } from "react-aria-components";
+import { useRouter } from "next/router";
+import { Controller, useForm } from "react-hook-form";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { MdCheck, MdFacebook } from "react-icons/md";
+import { MdFacebook } from "react-icons/md";
 import Button from "src/components/button/Button";
+import Checkbox from "src/components/field/Checkbox";
 import Input from "src/components/field/Input";
 import InputPassword from "src/components/field/InputPassword";
 import {
@@ -23,25 +25,31 @@ import backgroundImage from "src/components/images/background.png";
 import logoBCT1 from "src/components/images/logoBCT1.png";
 import { toastQueue } from "src/components/toast/GlobalToastRegion";
 import { useLoginMutation } from "src/redux/query/auth.query";
-import { twMerge } from "tailwind-merge";
 import * as yup from "yup";
+// import ReactDatePicker from "react-datepicker"
+// import { TextField } from "@material-ui/core"
 
 const loginSchema = yup.object({
-  email: yup.string().required("Hãy nhập email hoặc tên người dùng của bạn!"),
+  userNameOrEmailAddress: yup.string().required("Hãy nhập email hoặc tên người dùng của bạn!"),
   password: yup
     .string()
     .min(6, "Mật khẩu cần ít nhất 6 kí tự!")
     .required("Hãy nhập mật khẩu của bạn!"),
+  rememberClient: yup.boolean(),
 });
 
 function Page() {
+  const router = useRouter();
+
   const {
     handleSubmit,
-    formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
     register,
+    control,
   } = useForm({
     resolver: yupResolver(loginSchema),
     mode: "onChange",
+    defaultValues: { rememberClient: false },
   });
   const [loginMutate, { isLoading }] = useLoginMutation();
 
@@ -57,6 +65,7 @@ function Page() {
           },
           { timeout: 3000 },
         );
+        router.replace("/homepage");
       })
       .catch((err) => {
         toastQueue.add(
@@ -103,33 +112,33 @@ function Page() {
               </span>
 
               <Input
+                className=" border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
                 type="text"
                 placeholder="Tên tài Khoản Hoặc Email"
-                {...register("email")}
-                errorMessage={errors.email?.message}
+                {...register("userNameOrEmailAddress")}
+                errorMessage={errors.userNameOrEmailAddress?.message}
               />
 
               <InputPassword
+                className="mt-8 border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
                 placeholder="Mật khẩu"
                 {...register("password")}
                 errorMessage={errors.password?.message}
               />
-              <div className="flex items-start justify-between">
-                <Checkbox className="mr-5 flex cursor-pointer items-center justify-start">
-                  {({ isSelected }) => (
-                    <>
-                      <div
-                        className={twMerge(
-                          "flex h-5 w-5 items-center justify-center rounded border-2  border-primary-50 transition-all",
-                          isSelected ? "bg-primary-50" : "",
-                        )}
-                      >
-                        <MdCheck className="text-white" />
-                      </div>
-                      <span className="ps-2 font-normal ">Ghi nhớ đăng nhập</span>
-                    </>
+              <div className="mt-8 flex items-start justify-between">
+                <Controller
+                  control={control}
+                  render={({ field: { onChange } }) => (
+                    <Checkbox
+                      onChange={onChange}
+                      className="mr-5 flex items-center justify-between"
+                    >
+                      Ghi nhớ đăng nhập
+                    </Checkbox>
                   )}
-                </Checkbox>
+                  name={"rememberClient"}
+                ></Controller>
+
                 <span className="flex cursor-pointer items-center text-primary-50">
                   Quên mật khẩu ?
                 </span>

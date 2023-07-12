@@ -1,4 +1,6 @@
 import Chat from "./Chat.svg";
+import Flashsales1 from "./Flashsales1.svg";
+import Flashsales2 from "./Flashsales2.svg";
 import ForumYes from "./Forumyes.svg";
 import Research from "./Research.svg";
 import Service from "./Service.svg";
@@ -23,8 +25,6 @@ import Entertainment from "./entertainment.svg";
 import Fix from "./fix.svg";
 import Flashsale1 from "./flashsale1.svg";
 import Flashsale2 from "./flashsale2.svg";
-import Flashsales1 from "./flashsales1.svg";
-import Flashsales2 from "./flashsales2.svg";
 import Food from "./food.svg";
 import ForumNo from "./forum.svg";
 import Global from "./global.svg";

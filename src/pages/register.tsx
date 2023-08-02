@@ -38,7 +38,7 @@ const loginSchema = yup.object({
   rememberClient: yup.boolean(),
 });
 
-function Login() {
+function Register() {
   const router = useRouter();
 
   const {
@@ -238,4 +238,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

@@ -46,64 +46,76 @@ import {
   YoolifeIContent,
 } from "src/components/icons";
 import hotdeal from "src/components/images/hotdeal.png";
-function homepage() {
+
+// import { useGetAllTenantNameQuery } from "src/redux/query/auth.query";
+function HomePage() {
   return (
     <>
-      <div className="grid w-full grid-cols-1 text-center  xl:grid-cols-6">
-        <div className="left-taskbar hidden bg-white xl:block ">
+      <div className="grid w-full grid-cols-1 text-center  lg:grid-cols-6">
+      <div className="left-taskbar hidden bg-white lg:block ">
           <div className="flex items-center justify-center pb-6 pt-12">
             <YoolifeIContent className="w-32" />
           </div>
-          <div className="flex flex-col gap-8 pt-5">
+          <div className="flex  flex-col gap-8 pt-5 ">
             <div
               dir="ltr"
-              className="relative ml-10 flex cursor-pointer items-center justify-start rounded-s-3xl bg-white p-1 hover:z-10 hover:bg-primary-250 hover:text-primary-50 "
+              className="relative ml-3 flex cursor-pointer items-center justify-start rounded-s-full bg-white p-1 hover:z-10 hover:bg-primary-250 xl:ml-10 "
             >
-              <HomeYes className="absolute left-2 top-1 w-14 opacity-100 hover:z-10 " />
-              <HomeNo className="absolute left-2 top-1 w-14 opacity-100 hover:hidden" />
               <div className=" absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
 
-              <div className="py-4 pl-14">Trang chủ</div>
+              {/* <div onClick={listAllDatas} className="h-20 w-64"> */}
+              <div className="h-20 w-64">
+                <HomeYes className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:z-10 " />
+                <HomeNo className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:hidden" />
+              </div>
               <div className="absolute -bottom-8 right-0 h-8 w-8 bg-inherit after:absolute after:bottom-0 after:right-0 after:h-8 after:w-16 after:rounded-tr-full after:bg-white"></div>
             </div>
             <div
               dir="ltr"
-              className="relative ml-10 flex cursor-pointer items-center justify-start rounded-s-3xl bg-white p-1 hover:z-10 hover:bg-primary-250 hover:text-primary-50 "
+              className="relative ml-3 flex cursor-pointer items-center justify-start rounded-s-full bg-white p-1 hover:z-10 hover:bg-primary-250 xl:ml-10 "
             >
-              <ForumYes className="absolute left-2 top-1 w-14 opacity-100 hover:z-10 " />
-              <ForumNo className="absolute left-2 top-1 w-14 opacity-100 hover:opacity-0 " />
-              <div className="absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
-              <div className="py-4 pl-14">Diễn đàn</div>
+              <div className=" absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
+
+              <div className="h-20 w-64">
+                <ForumYes className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:z-10 " />
+                <ForumNo className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:hidden" />
+              </div>
               <div className="absolute -bottom-8 right-0 h-8 w-8 bg-inherit after:absolute after:bottom-0 after:right-0 after:h-8 after:w-16 after:rounded-tr-full after:bg-white"></div>
             </div>
             <div
               dir="ltr"
-              className="relative ml-10 flex cursor-pointer items-center justify-start rounded-s-3xl bg-white p-1 hover:z-10 hover:bg-primary-250 hover:text-primary-50 "
+              className="relative ml-3 flex cursor-pointer items-center justify-start rounded-s-full bg-white p-1 hover:z-10 hover:bg-primary-250 xl:ml-10 "
             >
-              <DepartmentYes className="absolute left-2 top-1 w-14 opacity-100 hover:z-10 " />
-              <DepartmentNo className="absolute left-2 top-1 w-14 opacity-100 hover:opacity-0 " />
-              <div className="absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
-              <div className="py-4 pl-14">Căn hộ</div>
+              <div className=" absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
+
+              <div className="h-20 w-64">
+                <DepartmentYes className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:z-10 " />
+                <DepartmentNo className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:hidden" />
+              </div>
               <div className="absolute -bottom-8 right-0 h-8 w-8 bg-inherit after:absolute after:bottom-0 after:right-0 after:h-8 after:w-16 after:rounded-tr-full after:bg-white"></div>
             </div>
             <div
               dir="ltr"
-              className="relative ml-10 flex cursor-pointer items-center justify-start rounded-s-3xl bg-white p-1 hover:z-10 hover:bg-primary-250 hover:text-primary-50 "
+              className="relative ml-3 flex cursor-pointer items-center justify-start rounded-s-full bg-white p-1 hover:z-10 hover:bg-primary-250 xl:ml-10 "
             >
-              <SettingsYes className="absolute left-3 top-2 w-12 opacity-100 hover:z-10 " />
-              <SettingsNo className="absolute left-3 top-2 w-12 opacity-100 hover:opacity-0 " />
-              <div className="absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
-              <div className="py-4 pl-14">Cài đặt</div>
+              <div className=" absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
+
+              <div className="h-20 w-64">
+                <SettingsYes className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:z-10 " />
+                <SettingsNo className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:hidden" />
+              </div>
               <div className="absolute -bottom-8 right-0 h-8 w-8 bg-inherit after:absolute after:bottom-0 after:right-0 after:h-8 after:w-16 after:rounded-tr-full after:bg-white"></div>
             </div>
             <div
               dir="ltr"
-              className="relative ml-10 flex cursor-pointer items-center justify-start rounded-s-3xl bg-white p-1 hover:z-10 hover:bg-primary-250 hover:text-primary-50 "
+              className="relative ml-3 flex cursor-pointer items-center justify-start rounded-s-full bg-white p-1 hover:z-10 hover:bg-primary-250 xl:ml-10 "
             >
-              <AccountYes className="absolute left-2 top-1 w-14 opacity-100 hover:z-10 " />
-              <AccountNo className="absolute left-2 top-1 w-14 opacity-100 hover:opacity-0 " />
-              <div className="absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
-              <div className="py-4 pl-14">Tài khoản</div>
+              <div className=" absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
+
+              <div className="h-20 w-64">
+                <AccountYes className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:z-10 " />
+                <AccountNo className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:hidden" />
+              </div>
               <div className="absolute -bottom-8 right-0 h-8 w-8 bg-inherit after:absolute after:bottom-0 after:right-0 after:h-8 after:w-16 after:rounded-tr-full after:bg-white"></div>
             </div>
           </div>
@@ -122,7 +134,7 @@ function homepage() {
               <div className="flex w-full items-center justify-start">
                 <InputSearchBar
                   // style={{ width: "670px" }}
-                  className=" rounded-full bg-primary-250 px-10 py-2.5 text-xl md:w-80 lg:w-128 xl:w-192 2xl:w-256"
+                  className=" rounded-full bg-primary-250 px-10 py-2.5 text-xl md:w-256 lg:w-80 xl:w-192 2xl:w-512"
                   placeholder="Bạn cần trợ giúp gì không?"
                 />
               </div>
@@ -135,7 +147,8 @@ function homepage() {
               </div>
               <div className="languages flex h-12 cursor-pointer items-center justify-between gap-2 rounded-full bg-primary-250 p-2.5">
                 <DropDown className="hidden h-3 w-6 md:block" />
-                <div className="text-sm lg:text-xl">Tiếng Việt</div>
+                <div className="hidden text-sm lg:block">Tiếng Việt</div>
+                <div className="text-sm lg:hidden">VIE</div>
                 <Global className="hidden h-6 w-6 md:block" />
               </div>
             </div>
@@ -537,7 +550,7 @@ function homepage() {
             </div>
           </div>
         </div>
-        <div className="right-taskbar hidden bg-primary-250 px-5 py-12 xl:block">
+        <div className="right-taskbar hidden bg-white  px-5 py-12 lg:block">
           <div className="">
             <div className="flex items-center justify-center">
               <Avatar className="flex h-28 w-28 justify-center rounded-full" />
@@ -625,4 +638,4 @@ function homepage() {
   );
 }
 
-export default homepage;
+export default HomePage;

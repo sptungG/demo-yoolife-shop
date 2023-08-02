@@ -5,16 +5,19 @@ import { getPersistConfig } from "redux-deep-persist";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authApi } from "./query/auth.query";
+import { itemApi } from "./query/item.query";
 import { userApi } from "./query/user.query";
 import authReducer, { setAccessToken, setRefreshToken } from "./reducer/auth.reducer";
+import itemReducer from "./reducer/item.reducer";
 import themeReducer from "./reducer/theme.reducer";
 import userReducer, { setUser } from "./reducer/user.reducer";
-
 const reducers = combineReducers({
   auth: authReducer,
   user: userReducer,
+  item: itemReducer,
   theme: themeReducer,
   [authApi.reducerPath]: authApi.reducer,
+  [itemApi.reducerPath]: itemApi.reducer,
   [userApi.reducerPath]: userApi.reducer,
 });
 
@@ -52,6 +55,7 @@ const store = configureStore({
     gDM({ serializableCheck: false }).concat(
       userApi.middleware,
       authApi.middleware,
+      itemApi.middleware,
       rtkQueryErrorLogger,
     ),
   devTools: process.env.NODE_ENV !== "production",

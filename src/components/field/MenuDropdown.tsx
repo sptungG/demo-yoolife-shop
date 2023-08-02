@@ -5,10 +5,10 @@ import OverlayButton from "./OverlayButton";
 
 function MenuDropdown() {
   return (
-    <div className="rounded-lg bg-primary-250 p-1 lg:hidden ">
+    <div className="rounded-lg lg:hidden cursor-pointer bg-blue-300">
       <MenuTrigger>
         <OverlayButton aria-label="Menu">
-          <MdList className="text-black" size={28} />
+          <MdList className="text-white" size={28} />
         </OverlayButton>
         <Popover className="w-56 origin-top-left overflow-auto rounded-md bg-white p-1 shadow-lg ring-1 ring-black ring-opacity-5 fill-mode-forwards data-[entering]:animate-in data-[exiting]:animate-out data-[entering]:fade-in data-[exiting]:fade-out data-[entering]:zoom-in-95 data-[exiting]:zoom-out-95">
           <Menu className="outline-none">

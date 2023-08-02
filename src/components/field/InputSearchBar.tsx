@@ -1,5 +1,5 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
-import { MdSearch } from "react-icons/md";
+import { SearchIcon } from "src/components/icons";
 import Input, { TInputProps } from "./Input";
 
 type TInputPasswordProps = Omit<TInputProps, "type">;
@@ -16,7 +16,7 @@ const InputSearchbar: ForwardRefRenderFunction<HTMLInputElement, TInputPasswordP
       {...props}
       type="text"
       classNamePrefix="text-gray-400 cursor-pointer px-3 bottom-0 left-100 z-10  hover:text-black "
-      prefix={<MdSearch size={24}/>}
+      prefix={<SearchIcon className="h-5 w-5" />}
       //   <MdSearch />
     />
   );

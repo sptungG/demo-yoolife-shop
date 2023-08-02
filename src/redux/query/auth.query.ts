@@ -98,6 +98,7 @@ export const authApi = createApi({
       }),
       invalidatesTags: [{ type: "auth", id: "isTenantAvailable" }],
     }),
+    // listAllDataTypes: builder.mutation<any>
   }),
 });
 export const {

@@ -1,6 +1,5 @@
 // hien thi top san pham tim kiem
 
-import { log } from "console";
 import { Top2 } from "src/components/icons";
 import { useGetItemsByUserQuery, useGetItemsQuery } from "src/redux/query/item.query";
 
@@ -14,17 +13,17 @@ function ListUserProducts3({ id, title }: { id: number; title: string }) {
   const items = userData?.result.data;
 
   console.log(items);
-  const sortItems = (items ||[]).slice().sort((a, b) => {
+  const sortItems = (items || []).slice().sort((a, b) => {
     return b.viewCount - a.viewCount;
   });
   console.log(sortItems);
 
-  const topSearchItems = sortItems.slice(0,6)
+  const topSearchItems = sortItems.slice(0, 6);
 
   const provinces = (topSearchItems || []).map((item: any) => JSON.parse(item.address));
- // const provinceName = provinces.map((item) => item.ProvinceName);
- // const images = (topSearchItems || []).map((item) => item.imageUrlList[0]);
-  
+  // const provinceName = provinces.map((item) => item.ProvinceName);
+  // const images = (topSearchItems || []).map((item) => item.imageUrlList[0]);
+
   return (
     <div className="gap-6">
       <div className="py-4 text-2xl font-semibold">{title}</div>

@@ -3,6 +3,7 @@ import CraftImage from "./CraftImage.svg";
 import Flashsales1 from "./Flashsales1.svg";
 import Flashsales2 from "./Flashsales2.svg";
 import ForumYes from "./Forumyes.svg";
+import NoImagePlaceholder from "./NoImagePlaceholder.svg";
 import Research from "./Research.svg";
 import Service from "./Service.svg";
 import Shopping from "./Shopping.svg";
@@ -26,6 +27,10 @@ import Education from "./education.svg";
 import ElecDevice from "./elecdevice.svg";
 import EmailIcon from "./emailIcon.svg";
 import Entertainment from "./entertainment.svg";
+import Ex1 from "./ex1.svg";
+import Ex2 from "./ex2.svg";
+import Ex3 from "./ex3.svg";
+import Ex4 from "./ex4.svg";
 import Fix from "./fix.svg";
 import Flashsale1 from "./flashsale1.svg";
 import Flashsale2 from "./flashsale2.svg";
@@ -60,13 +65,12 @@ import Top1 from "./top1.svg";
 import Top2 from "./top2.svg";
 import Tourism from "./tourism.svg";
 import Traffic from "./traffic.svg";
+import Trash from "./trash.svg";
 import TwitterIcon from "./twitterIcon.svg";
 import UserIcon from "./userIcon.svg";
 import YoolifeIContent from "./yoolifeIContent.svg";
 import YoolifeIHeader from "./yoolifeIHeader.svg";
-import NoImagePlaceholder from "./NoImagePlaceholder.svg";
 export {
-  NoImagePlaceholder,
   AccountNo,
   AccountYes,
   AirDevice,
@@ -85,6 +89,10 @@ export {
   ElecDevice,
   EmailIcon,
   Entertainment,
+  Ex1,
+  Ex2,
+  Ex3,
+  Ex4,
   Fix,
   Flashsale1,
   Flashsale2,
@@ -104,6 +112,7 @@ export {
   ListItem,
   MapLocation,
   Medical,
+  NoImagePlaceholder,
   OfficeIcon,
   PhoneIcon,
   QrCode,
@@ -129,6 +138,7 @@ export {
   Tops2,
   Tourism,
   Traffic,
+  Trash,
   TwitterIcon,
   UserIcon,
   YoolifeIContent,

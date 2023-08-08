@@ -2,12 +2,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 // import { Checkbox } from "react-aria-components";
 import { useRouter } from "next/router";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { MdFacebook } from "react-icons/md";
 import Button from "src/components/button/Button";
-import Checkbox from "src/components/field/Checkbox";
 import Input from "src/components/field/Input";
 import InputPassword from "src/components/field/InputPassword";
 import {
@@ -113,22 +112,36 @@ function Register() {
               <span className="mb-5 text-center text-2xl font-semibold text-primary-50">
                 Cùng với YooLife
               </span>
+              <div className="flex flex-col gap-6">
+                <Input
+                  className=" border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
+                  type="text"
+                  placeholder="Tên tài Khoản"
+                  {...register("userNameOrEmailAddress")}
+                  errorMessage={errors.userNameOrEmailAddress?.message}
+                />
+                <Input
+                  className=" border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
+                  type="text"
+                  placeholder="Email hoặc SĐT"
+                  {...register("userNameOrEmailAddress")}
+                  errorMessage={errors.userNameOrEmailAddress?.message}
+                />
 
-              <Input
-                className=" border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
-                type="text"
-                placeholder="Tên tài Khoản Hoặc Email"
-                {...register("userNameOrEmailAddress")}
-                errorMessage={errors.userNameOrEmailAddress?.message}
-              />
-
-              <InputPassword
-                className="mt-8 border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
-                placeholder="Mật khẩu"
-                {...register("password")}
-                errorMessage={errors.password?.message}
-              />
-              <div className="mt-8 flex items-start justify-between">
+                <InputPassword
+                  className="border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
+                  placeholder="Mật khẩu"
+                  {...register("password")}
+                  errorMessage={errors.password?.message}
+                />
+                <InputPassword
+                  className="border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
+                  placeholder="Xác nhận lại mật khẩu"
+                  {...register("password")}
+                  errorMessage={errors.password?.message}
+                />
+              </div>
+              {/* <div className="mt-8 flex items-start justify-between">
                 <Controller
                   control={control}
                   render={({ field: { onChange } }) => (
@@ -145,7 +158,7 @@ function Register() {
                 <span className="flex cursor-pointer items-center text-primary-50">
                   Quên mật khẩu ?
                 </span>
-              </div>
+              </div> */}
 
               <Button
                 // style={{ backgroundColor: "#339FD9" }}
@@ -154,8 +167,13 @@ function Register() {
                 type="submit"
                 isLoading={isSubmitting}
               >
-                Đăng nhập
+                Đăng ký
               </Button>
+              
+              <div className="cursor-pointer text-center">
+                Bạn đã có tài khoản?
+                <span className="text-primary-50"> Đăng nhập</span>
+              </div>
               <span className="my-4 cursor-pointer text-center text-primary-50">
                 Hoặc đăng nhập với
               </span>
@@ -167,10 +185,6 @@ function Register() {
                 <div className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-primary-1000 bg-black ">
                   <FaApple className="h-9 w-9 text-white" />
                 </div>
-              </div>
-              <div className="cursor-pointer text-center">
-                Bạn chưa có tài khoản?
-                <span className="text-primary-50"> Đăng ký ngay</span>
               </div>
             </form>
           </div>

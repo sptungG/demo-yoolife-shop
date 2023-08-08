@@ -105,7 +105,7 @@ function Login() {
             </div>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="z-10 me-0 flex w-fit flex-col rounded-2xl bg-white p-8 md:me-8 lg:me-0"
+              className="z-10 me-0 flex w-fit flex-col rounded-2xl bg-white p-8 md:me-8 lg:me-0 "
             >
               <span className="text-center text-2xl font-semibold text-primary-50">
                 Trải nghiệm và khám phá
@@ -113,21 +113,22 @@ function Login() {
               <span className="mb-5 text-center text-2xl font-semibold text-primary-50">
                 Cùng với YooLife
               </span>
+              <div className="flex flex-col gap-6">
+                <Input
+                  className=" border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
+                  type="text"
+                  placeholder="Tên tài Khoản Hoặc Email"
+                  {...register("userNameOrEmailAddress")}
+                  errorMessage={errors.userNameOrEmailAddress?.message}
+                />
 
-              <Input
-                className=" border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
-                type="text"
-                placeholder="Tên tài Khoản Hoặc Email"
-                {...register("userNameOrEmailAddress")}
-                errorMessage={errors.userNameOrEmailAddress?.message}
-              />
-
-              <InputPassword
-                className="mt-8 border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
-                placeholder="Mật khẩu"
-                {...register("password")}
-                errorMessage={errors.password?.message}
-              />
+                <InputPassword
+                  className=" border-2 border-primary-50 bg-white p-2 text-base font-semibold focus-visible:outline-none active:border-blue-300"
+                  placeholder="Mật khẩu"
+                  {...register("password")}
+                  errorMessage={errors.password?.message}
+                />
+              </div>
               <div className="mt-8 flex items-start justify-between">
                 <Controller
                   control={control}
@@ -168,9 +169,17 @@ function Login() {
                   <FaApple className="h-9 w-9 text-white" />
                 </div>
               </div>
-              <div className="cursor-pointer text-center">
+              <div className="text-center">
                 Bạn chưa có tài khoản?
-                <span className="text-primary-50"> Đăng ký ngay</span>
+                <span
+                  onClick={() => {
+                    router.replace("/register");
+                  }}
+                  className="cursor-pointer text-primary-50 "
+                >
+                  {" "}
+                  Đăng ký ngay
+                </span>
               </div>
             </form>
           </div>

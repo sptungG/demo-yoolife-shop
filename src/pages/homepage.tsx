@@ -2,18 +2,12 @@
 import Image from "next/image";
 import "react-dropdown/style.css";
 import { MdLocationOn, MdStar } from "react-icons/md";
-import Button from "src/components/button/Button";
 import InputSearchBar from "src/components/field/InputSearchBar";
 import MenuDropdown from "src/components/field/MenuDropdown";
 import PopoverNotification from "src/components/field/PopoverNotification";
 import {
-  AccountNo,
-  AccountYes,
-  Avatar,
   Chat,
   Craft,
-  DepartmentNo,
-  DepartmentYes,
   DropDown,
   Education,
   Entertainment,
@@ -21,20 +15,14 @@ import {
   Flashsales1,
   Flashsales2,
   Food,
-  ForumNo,
-  ForumYes,
   Global,
   Healthcare,
-  HomeNo,
-  HomeYes,
   Job,
   MapLocation,
   Medical,
   Research,
   Resident,
   Service,
-  SettingsNo,
-  SettingsYes,
   Shopping,
   Sports,
   Top2,
@@ -43,86 +31,17 @@ import {
   Tourism,
   Traffic,
   UserIcon,
-  YoolifeIContent,
 } from "src/components/icons";
 import hotdeal from "src/components/images/hotdeal.png";
+import LeftTaskbar from "src/components/pages/LeftTaskbar";
+import RightTaskbar from "src/components/pages/RightTaskbar";
 
 // import { useGetAllTenantNameQuery } from "src/redux/query/auth.query";
 function HomePage() {
   return (
     <>
       <div className="grid w-full grid-cols-1 text-center  lg:grid-cols-6">
-      <div className="left-taskbar hidden bg-white lg:block ">
-          <div className="flex items-center justify-center pb-6 pt-12">
-            <YoolifeIContent className="w-32" />
-          </div>
-          <div className="flex  flex-col gap-8 pt-5 ">
-            <div
-              dir="ltr"
-              className="relative ml-3 flex cursor-pointer items-center justify-start rounded-s-full bg-white p-1 hover:z-10 hover:bg-primary-250 xl:ml-10 "
-            >
-              <div className=" absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
-
-              {/* <div onClick={listAllDatas} className="h-20 w-64"> */}
-              <div className="h-20 w-64">
-                <HomeYes className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:z-10 " />
-                <HomeNo className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:hidden" />
-              </div>
-              <div className="absolute -bottom-8 right-0 h-8 w-8 bg-inherit after:absolute after:bottom-0 after:right-0 after:h-8 after:w-16 after:rounded-tr-full after:bg-white"></div>
-            </div>
-            <div
-              dir="ltr"
-              className="relative ml-3 flex cursor-pointer items-center justify-start rounded-s-full bg-white p-1 hover:z-10 hover:bg-primary-250 xl:ml-10 "
-            >
-              <div className=" absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
-
-              <div className="h-20 w-64">
-                <ForumYes className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:z-10 " />
-                <ForumNo className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:hidden" />
-              </div>
-              <div className="absolute -bottom-8 right-0 h-8 w-8 bg-inherit after:absolute after:bottom-0 after:right-0 after:h-8 after:w-16 after:rounded-tr-full after:bg-white"></div>
-            </div>
-            <div
-              dir="ltr"
-              className="relative ml-3 flex cursor-pointer items-center justify-start rounded-s-full bg-white p-1 hover:z-10 hover:bg-primary-250 xl:ml-10 "
-            >
-              <div className=" absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
-
-              <div className="h-20 w-64">
-                <DepartmentYes className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:z-10 " />
-                <DepartmentNo className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:hidden" />
-              </div>
-              <div className="absolute -bottom-8 right-0 h-8 w-8 bg-inherit after:absolute after:bottom-0 after:right-0 after:h-8 after:w-16 after:rounded-tr-full after:bg-white"></div>
-            </div>
-            <div
-              dir="ltr"
-              className="relative ml-3 flex cursor-pointer items-center justify-start rounded-s-full bg-white p-1 hover:z-10 hover:bg-primary-250 xl:ml-10 "
-            >
-              <div className=" absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
-
-              <div className="h-20 w-64">
-                <SettingsYes className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:z-10 " />
-                <SettingsNo className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:hidden" />
-              </div>
-              <div className="absolute -bottom-8 right-0 h-8 w-8 bg-inherit after:absolute after:bottom-0 after:right-0 after:h-8 after:w-16 after:rounded-tr-full after:bg-white"></div>
-            </div>
-            <div
-              dir="ltr"
-              className="relative ml-3 flex cursor-pointer items-center justify-start rounded-s-full bg-white p-1 hover:z-10 hover:bg-primary-250 xl:ml-10 "
-            >
-              <div className=" absolute -top-8 right-0 h-8 w-8 bg-inherit after:absolute after:right-0 after:top-0 after:h-8 after:w-16 after:rounded-br-full after:bg-white"></div>
-
-              <div className="h-20 w-64">
-                <AccountYes className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:z-10 " />
-                <AccountNo className="absolute left-2 top-1  h-20 w-48 pr-12 opacity-100 hover:hidden" />
-              </div>
-              <div className="absolute -bottom-8 right-0 h-8 w-8 bg-inherit after:absolute after:bottom-0 after:right-0 after:h-8 after:w-16 after:rounded-tr-full after:bg-white"></div>
-            </div>
-          </div>
-          <Button className="logout mt-64 cursor-pointer rounded-2xl bg-primary-250 from-primary-1500 to-primary-1600 px-10 py-2.5 text-primary-350 hover:bg-gradient-to-r hover:text-white">
-            Đăng xuất
-          </Button>
-        </div>
+        <LeftTaskbar />
         <div className=" gap-2 bg-primary-250 md:col-span-4 md:col-start-2 lg:px-4">
           <div className="mb-2  flex justify-between bg-white  px-5 pb-4 pt-12">
             <div className="flex items-center justify-between">
@@ -550,89 +469,7 @@ function HomePage() {
             </div>
           </div>
         </div>
-        <div className="right-taskbar hidden bg-white  px-5 py-12 lg:block">
-          <div className="">
-            <div className="flex items-center justify-center">
-              <Avatar className="flex h-28 w-28 justify-center rounded-full" />
-            </div>
-            <div className="text-center font-semibold text-primary-50 lg:text-lg xl:text-xl">
-              Lưu Vương Thịnh
-            </div>
-            <div className="text-lg font-medium">ID: Miracles3345</div>
-          </div>
-          <div className="pt-10">
-            <div className="pb-4 text-start text-2xl font-semibold text-primary-50">Liên hệ</div>
-            <div className="border-2 border-primary-150"></div>
-            <div className="flex flex-col gap-6 pt-7">
-              <div className="flex items-start justify-start">
-                <div>
-                  <Avatar className="h-14 w-14" />
-                </div>
-                <div className="pl-2 text-start">
-                  <div>Chử Hoàng</div>
-                  <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
-                    Online
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start justify-start">
-                <div>
-                  <Avatar className="h-14 w-14" />
-                </div>
-                <div className="pl-2 text-start">
-                  <div>Chử Hoàng</div>
-                  <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
-                    Online
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start justify-start">
-                <div>
-                  <Avatar className="h-14 w-14" />
-                </div>
-                <div className="pl-2 text-start">
-                  <div>Chử Hoàng</div>
-                  <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
-                    Online
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start justify-start">
-                <div>
-                  <Avatar className="h-14 w-14" />
-                </div>
-                <div className="pl-2 text-start">
-                  <div>Chử Hoàng</div>
-                  <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
-                    Online
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start justify-start">
-                <div>
-                  <Avatar className="h-14 w-14" />
-                </div>
-                <div className="pl-2 text-start">
-                  <div>Chử Hoàng</div>
-                  <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
-                    Online
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start justify-start">
-                <div>
-                  <Avatar className="h-14 w-14" />
-                </div>
-                <div className="pl-2 text-start">
-                  <div>Chử Hoàng</div>
-                  <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
-                    Online
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <RightTaskbar />
       </div>
     </>
   );

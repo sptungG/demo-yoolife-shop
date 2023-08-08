@@ -22,6 +22,11 @@ module.exports = {
           50: "#339FD9",
           250: "#F1F2F8", // nen o trang homepage
           350: "#878A9C", // nen chu trang homepage
+          450: "#78B7EE", // mau chu trang shopping
+          460: "#FDCBCB", // am thuc noi bat shopping search
+          470: "#CBEBFB", // san pham de xuat shopping search
+          480: "#D5FDCB", // thiet bi thong minh shopping search
+          490: "#E7CBFD", // set qua tang noi bat shopping search
           150: "#707386",
           1500: "#A1C4FD", //linear flashsale1
           1600: "#C2E9FB", //linear flashsale1

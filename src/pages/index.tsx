@@ -29,8 +29,8 @@ export default function Home() {
   };
 
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}
-    ></main>
+    <main className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}>
+      main page
+    </main>
   );
 }

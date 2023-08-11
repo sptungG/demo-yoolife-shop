@@ -1,11 +1,11 @@
 import { Menu, MenuTrigger, Popover } from "react-aria-components";
 import { MdList } from "react-icons/md";
 import MenuItem from "./MenuItem";
-import OverlayButton from "./OverlayButton";
+import OverlayButton from "./Notify/OverlayButton";
 
 function MenuDropdown() {
   return (
-    <div className="rounded-lg lg:hidden cursor-pointer bg-blue-300 ">
+    <div className="cursor-pointer rounded-lg bg-blue-300 lg:hidden ">
       <MenuTrigger>
         <OverlayButton aria-label="Menu">
           <MdList className="text-white" size={28} />

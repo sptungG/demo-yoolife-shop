@@ -43,32 +43,32 @@ function shoppingSearch() {
             <div className="overflow-auto rounded-xl text-primary-350">
               <div className="min-w-lg bg-white ">
                 <div className="flex overflow-x-auto">
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none px-1 pb-3 pt-5 first:pl-6 last:pr-6">
                     <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
                       Công tắc Legrand
                     </div>
                   </div>
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none px-1 pb-3 pt-5 first:pl-6 last:pr-6">
                     <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
                       Camera AI Bkav
                     </div>
                   </div>
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none px-1 pb-3 pt-5 first:pl-6 last:pr-6">
                     <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
                       Bộ điều khiển TV
                     </div>
                   </div>
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none px-1 pb-3 pt-5 first:pl-6 last:pr-6">
                     <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
                       Công tắc đôi Schneider
                     </div>
                   </div>
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none px-1 pb-3 pt-5 first:pl-6 last:pr-6">
                     <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
                       Thiết bị thông minh Smart Home
                     </div>
                   </div>
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none px-1 pb-3 pt-5 first:pl-6 last:pr-6">
                     <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
                       Bộ điều khiển Ánh sáng
                     </div>
@@ -77,7 +77,7 @@ function shoppingSearch() {
               </div>
             </div>
           </div>
-          <div className="mb-2 bg-white px-5 pb-4 pt-2  text-xl font-semibold text-primary-350">
+          <div className="mb-2 bg-white px-5 pb-4 pt-2  text-lg font-semibold text-primary-350">
             <div className="flex justify-between">
               <div>Lịch sử tìm kiếm</div>
               <div className="flex cursor-pointer justify-between">
@@ -86,33 +86,33 @@ function shoppingSearch() {
             </div>
             <div className="mb-2 overflow-auto rounded-xl text-primary-350">
               <div className="min-w-lg bg-white ">
-                <div className="flex overflow-x-auto">
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
+                <div className="flex overflow-x-auto text-sm">
+                  <div className="flex-none cursor-pointer px-3 py-2 first:pl-6 last:pr-6">
                     <div className="flex flex-col items-center justify-center gap-3">
                       Ổ cắm đơn 2 chấu
                     </div>
                   </div>
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none cursor-pointer px-3 py-2 first:pl-6 last:pr-6">
                     <div className="flex flex-col items-center justify-center gap-3">
                       Deco phòng khách
                     </div>
                   </div>
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none cursor-pointer px-3 py-2 first:pl-6 last:pr-6">
                     <div className="flex flex-col items-center justify-center gap-3">
                       Chuông cửa thông minh
                     </div>
                   </div>
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none cursor-pointer px-3 py-2 first:pl-6 last:pr-6">
                     <div className="flex flex-col items-center justify-center gap-3">
                       Balo Da chất lượng cao
                     </div>
                   </div>
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none cursor-pointer px-3 py-2 first:pl-6 last:pr-6">
                     <div className="flex flex-col items-center justify-center gap-3">
                       Tai nghe thông minh
                     </div>
                   </div>
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
+                  <div className="flex-none cursor-pointer px-3 py-2 first:pl-6 last:pr-6">
                     <div className="flex flex-col items-center justify-center gap-3">
                       Zắc kết nối tai nghe
                     </div>
@@ -122,25 +122,25 @@ function shoppingSearch() {
             </div>
             <div className="grid grid-cols-4 gap-6">
               <div className="rounded bg-gradient-to-b from-primary-460 to-white px-2 py-4 text-start text-primary-350">
-                <div className="pb-3 text-xl text-primary-450">Ẩm thực nổi bật</div>
-                <ul className="flex flex-col gap-3">
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                <div className="pb-3 text-base text-primary-450">Ẩm thực nổi bật</div>
+                <ul className="flex flex-col gap-3 text-sm">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex1 className="col-span-1" />
                     <p className="col-span-2 line-clamp-3">
                       Thịt trâu gác bếp tây bắc Hoa Ban food
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex1 className="col-span-1" />
                     <p className="col-span-2 line-clamp-3">
                       Thịt dê núi Ninh Bình Đặc sản rừng núi
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex1 className="col-span-1" />
                     <p className="col-span-2 line-clamp-3">Chân giò Lã vọng Đặc sản Tây bắc</p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex1 className="col-span-1" />
                     <p className="col-span-2 line-clamp-3">Thịt lợn gác bếp Đặc sản Tây ninh</p>
                   </li>
@@ -151,36 +151,36 @@ function shoppingSearch() {
                 </ul>
               </div>
               <div className="rounded bg-gradient-to-b from-primary-470 to-white px-2 py-4 text-start text-primary-350">
-                <div className="pb-3 text-xl text-primary-450">Sản phẩm đề xuất</div>
-                <ul className="flex flex-col gap-3">
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                <div className="pb-3 text-base text-primary-450">Sản phẩm đề xuất</div>
+                <ul className="flex flex-col gap-3 text-sm">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex2 className="col-span-1" />
                     <p className="col-span-2 line-clamp-3">
                       Tú đựng cơm văn phòng nhỏ nhắn tiện dụng
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex2 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
                       Đèn bàn học HY2266 Bóng LED Chống Cận Bảo Vệ Mắt
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex2 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
                       Đèn treo trang trí phòng ngủ, học, phòng khách
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex2 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
                       Đèn trần phòng khách Macaron Hiện Đại Bắc Âu Đèn led
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex2 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
@@ -190,35 +190,35 @@ function shoppingSearch() {
                 </ul>
               </div>
               <div className="rounded bg-gradient-to-b from-primary-480 to-white px-2 py-4 text-start text-primary-350">
-                <div className="pb-3 text-xl text-primary-450">Thiết bị thông minh</div>
-                <ul className="flex flex-col gap-3">
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                <div className="pb-3 text-base text-primary-450">Thiết bị thông minh</div>
+                <ul className="flex flex-col gap-3 text-sm">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex3 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">Thiết bị định vị thông minh Xiaomi</p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex3 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
                       Thiết bị định vị thông minh chống thất lạc cho trẻ em
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex3 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
                       Công tắc thông minh điều khiển hai chiều được sản xuât tại nhật
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex3 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
                       Bộ smart home cơ bản AQARA STARTER KIT
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex3 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
@@ -228,9 +228,9 @@ function shoppingSearch() {
                 </ul>
               </div>
               <div className="rounded bg-gradient-to-b from-primary-490 to-white px-2 py-4 text-start text-primary-350">
-                <div className="pb-3 text-xl text-primary-450">Set quà tặng nổi bật</div>
-                <ul className="flex flex-col gap-3">
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                <div className="pb-3 text-base text-primary-450">Set quà tặng nổi bật</div>
+                <ul className="flex flex-col gap-3 text-sm">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex4 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
@@ -238,28 +238,28 @@ function shoppingSearch() {
                       Hộp quà tặng Saffron Nhụy Hoa Nghệ Tây Jahan
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex4 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
                       Set quà tặng mẹ Saffron ngâm mật ong 130gr
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex4 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
                       Set quà Saffron ngâm mật ong 130gr thương hiệu Saffron
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex4 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">
                       Hộp Quà Trà Hoa Sấy Lạnh Enjoy Tea, Quà Tặng Sức Khỏe
                     </p>
                   </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
+                  <li className="flex cursor-pointer flex-col md:grid md:grid-cols-3 md:gap-3">
                     <Ex4 className="col-span-1" />
 
                     <p className="col-span-2 line-clamp-3">

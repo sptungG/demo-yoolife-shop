@@ -4,7 +4,7 @@ import "react-dropdown/style.css";
 import { MdLocationOn, MdStar } from "react-icons/md";
 import InputSearchBar from "src/components/field/InputSearchBar";
 import MenuDropdown from "src/components/field/MenuDropdown";
-import PopoverNotification from "src/components/field/PopoverNotification";
+import PopoverNotification from "src/components/field/Notify/PopoverNotification";
 import {
   Chat,
   Craft,

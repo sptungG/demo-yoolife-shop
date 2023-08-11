@@ -13,33 +13,24 @@ function ListUserProducts({ id, title }: { id: number; title: string }) {
   const provinces = (items || []).map((item: any) => JSON.parse(item.address));
   const provinceName = provinces.map((item) => item.ProvinceName);
 
- // const images = (items || []).map((item) => item.imageUrlList[0]);
+  // const images = (items || []).map((item) => item.imageUrlList[0]);
 
   useEffect(() => {
     if (userData?.result.data && userData?.result.data.length > 0)
       setItems(userData?.result.data.slice(0, 5));
   }, [userData]);
 
-  
   return (
     <div className="gap-6">
       <div className="py-4 text-2xl font-semibold">{title}</div>
-      <div className="grid grid-cols-1  gap-4 md:grid-cols-3 lg:grid-cols-5 lg:gap-2  xl:gap-4">
+      <div className="grid grid-cols-2  gap-4 text-start md:grid-cols-3 lg:grid-cols-5  lg:gap-2 xl:gap-4">
         {!!items &&
           items?.map((item: any, index) => {
             return (
               <div
                 key={item.id}
-                className="relative cursor-pointer rounded-3xl bg-primary-250 p-2 text-sm"
+                className="relative cursor-pointer rounded-3xl bg-primary-250 p-2 "
               >
-                {/* <Image
-                  // src= {`${item.iconUrl}`}
-                  src={`${images}`}
-                  layout="fill"
-                  className="w-full rounded-lg bg-contain pb-2"
-                  alt="image"
-                  objectFit="cover"
-                /> */}
                 <img
                   src={`${item.imageUrlList[0]}`}
                   className="aspect-square w-full rounded-lg bg-contain object-cover "
@@ -50,29 +41,27 @@ function ListUserProducts({ id, title }: { id: number; title: string }) {
                       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
                   }}
                 />
-                <div className="line-clamp-1 pb-2 pt-2 text-xl font-semibold text-primary-150 lg:text-base">
+                <div className="line-clamp-2 overflow-hidden pb-2 pt-2 text-xl font-semibold text-primary-150 lg:text-base">
                   {item.name}
                 </div>
-                <div className="flex items-center justify-between text-xl lg:grid lg:grid-cols-1 lg:text-sm xl:flex">
+                <div className="flex items-center justify-between ">
                   <div className="flex items-center justify-between ">
-                    <p className="my-1 rounded-md  bg-gradient-to-r from-primary-1500 to-primary-1600 px-3 text-white">
+                    <div className="my-1 flex h-4 items-center rounded-md  bg-gradient-to-r from-primary-1500 to-primary-1600 px-1 text-[10px] text-white xl:px-3">
                       {item.minPrice}đ
-                    </p>
+                    </div>
                   </div>
-                  <div className="text-primary-150 line-through">
-                    <p>{item.maxPrice}đ</p>
-                  </div>
+                  <div className=" text-[10px] text-primary-150 line-through">{item.maxPrice}đ</div>
                 </div>
-                <div className="flex justify-between text-xl text-yellow-400 lg:grid lg:grid-cols-1 lg:text-sm xl:flex">
-                  <div className="flex items-center justify-start">
-                    <MdStar className="w-6" size={14} />
-                    <p className="text-primary-50">
+                <div className="flex justify-between text-xl text-yellow-400 ">
+                  <div className="flex items-center justify-between">
+                    <MdStar size={14} />
+                    <p className="text-xs text-primary-50">
                       {item.ratePoint} <span className="text-primary-150">({item.countRate})</span>
                     </p>
                   </div>
-                  <div className="flex items-center justify-start">
-                    <MdLocationOn className="w-6" size={14} />
-                    <p className="text-primary-150">{provinceName[index]}</p>
+                  <div className="flex items-center justify-between">
+                    <MdLocationOn size={14} />
+                    <p className="text-xs text-primary-150">{provinceName[index]}</p>
                   </div>
                 </div>
               </div>

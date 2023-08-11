@@ -28,6 +28,7 @@ module.exports = {
           480: "#D5FDCB", // thiet bi thong minh shopping search
           490: "#E7CBFD", // set qua tang noi bat shopping search
           150: "#707386",
+          160: "#B0DAFF", // background button shoppin search result
           1500: "#A1C4FD", //linear flashsale1
           1600: "#C2E9FB", //linear flashsale1
           1700: "#F6D365", //linear flashsale2

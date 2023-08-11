@@ -43,7 +43,7 @@ function ListUserProducts3({ id, title }: { id: number; title: string }) {
                         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
                     }}
                   />
-                  <Top2 className="absolute bottom-0 left-0 h-6" />
+                  <Top2 className="absolute bottom-0 left-0 h-6 rounded-bl-lg" />
                 </div>
                 <div className="line-clamp-1 pt-2 text-lg font-medium text-primary-150">
                   {item.name}

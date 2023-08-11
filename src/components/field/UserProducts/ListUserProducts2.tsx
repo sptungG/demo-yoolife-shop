@@ -11,8 +11,9 @@ function ListUserProducts2({ id, title }: { id: number; title: string }) {
   //const items = (userData?.result.data || []).filter((item: any) => item.categoryId === id);
 
   const items = userData?.result.data;
+  const eDevices = items?.filter((item: any) => item.categoryId === id);
+  const elecDevices = eDevices?.slice(0, 8);
 
-  const elecDevices = items?.filter((item: any) => item.categoryId === id);
   console.log(elecDevices);
 
   const provinces = (elecDevices || []).map((item: any) => JSON.parse(item.address));

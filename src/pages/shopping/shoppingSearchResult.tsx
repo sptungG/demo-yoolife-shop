@@ -1,12 +1,28 @@
 import "react-dropdown/style.css";
+import { MdLocationOn, MdStar } from "react-icons/md";
 import Button from "src/components/button/Button";
+import FilterProducts from "src/components/field/FilterProducts";
+import FilterSearch from "src/components/field/FilterSearch";
 import InputSearchBar from "src/components/field/InputSearchBar";
 import MenuDropdown from "src/components/field/MenuDropdown";
-import { Ex1, Ex2, Ex3, Ex4, QrCode, ShoppingCart, Trash } from "src/components/icons";
+import { QrCode, ShoppingCart } from "src/components/icons";
 import LeftTaskbar from "src/components/pages/LeftTaskbar";
 import RightTaskbar from "src/components/pages/RightTaskbar";
+import {
+  useGetAllItemsQuery,
+  useGetItemsByUserQuery,
+  useGetItemsQuery,
+} from "src/redux/query/item.query";
 
-function shoppingSearchResult() {
+function ShoppingSearchResult() {
+  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery();
+  const { data: userCategory, isLoading: isLoadingUserCategory } = useGetItemsQuery();
+  const { data: userAllItems, isLoading: isLoadingAllItems } = useGetAllItemsQuery();
+
+  const items = userData?.result.data;
+
+  const provinces = (items || []).map((item: any) => JSON.parse(item.address));
+  const provinceName = provinces.map((item) => item.ProvinceName);
   return (
     <>
       <div className="grid w-full grid-cols-1 text-center  lg:grid-cols-6">
@@ -40,234 +56,59 @@ function shoppingSearchResult() {
                 </div>
               </div>
             </div>
-            <div className="overflow-auto rounded-xl text-primary-350">
-              <div className="min-w-lg bg-white ">
-                <div className="flex overflow-x-auto">
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
-                    <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
-                      Công tắc Legrand
-                    </div>
-                  </div>
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
-                    <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
-                      Camera AI Bkav
-                    </div>
-                  </div>
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
-                    <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
-                      Bộ điều khiển TV
-                    </div>
-                  </div>
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
-                    <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
-                      Công tắc đôi Schneider
-                    </div>
-                  </div>
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
-                    <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
-                      Thiết bị thông minh Smart Home
-                    </div>
-                  </div>
-                  <div className="flex-none px-1 py-6 first:pl-6 last:pr-6">
-                    <div className="cursor-pointer border-r-2 border-primary-350 pr-2">
-                      Bộ điều khiển Ánh sáng
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          </div>
+          <div className="mb-2 flex items-center justify-between bg-white px-5 pb-4 pt-2  text-xl font-semibold text-primary-350">
+            <FilterProducts />
+            <FilterSearch />
           </div>
           <div className="mb-2 bg-white px-5 pb-4 pt-2  text-xl font-semibold text-primary-350">
-            <div className="flex justify-between">
-              <div>Lịch sử tìm kiếm</div>
-              <div className="flex cursor-pointer justify-between">
-                <p>Xóa tất cả</p> <Trash className="h-8 w-8 ps-2" />
-              </div>
-            </div>
-            <div className="mb-2 overflow-auto rounded-xl text-primary-350">
-              <div className="min-w-lg bg-white ">
-                <div className="flex overflow-x-auto">
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
-                    <div className="flex flex-col items-center justify-center gap-3">
-                      Ổ cắm đơn 2 chấu
+            <div className="grid grid-cols-2  gap-4 text-start md:grid-cols-3 lg:grid-cols-5  lg:gap-2 xl:gap-4">
+              {!!items &&
+                items?.map((item: any, index) => {
+                  return (
+                    <div
+                      key={item.id}
+                      className="relative cursor-pointer rounded-3xl bg-primary-250 p-2 "
+                    >
+                      <img
+                        src={`${item.imageUrlList[0]}`}
+                        className="aspect-square w-full rounded-lg bg-contain object-cover "
+                        alt="image"
+                        onError={({ currentTarget }) => {
+                          currentTarget.onerror = null; // prevents looping
+                          currentTarget.src =
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
+                        }}
+                      />
+                      <div className="line-clamp-2 overflow-hidden pb-2 pt-2 text-xl font-semibold text-primary-150 lg:text-base">
+                        {item.name}
+                      </div>
+                      <div className="flex items-center justify-between ">
+                        <div className="flex items-center justify-between ">
+                          <p className="my-1 flex h-4  items-center rounded-md bg-gradient-to-r from-primary-1500 to-primary-1600 px-1 text-[10px] text-white xl:px-3">
+                            {item.minPrice}đ
+                          </p>
+                        </div>
+                        <div className="flex h-4 items-center text-[10px] text-primary-150 line-through">
+                          <p>{item.maxPrice}đ</p>
+                        </div>
+                      </div>
+                      <div className="flex justify-between text-xl text-yellow-400 ">
+                        <div className="flex items-center justify-start">
+                          <MdStar size={14} />
+                          <p className="text-xs text-primary-50">
+                            {item.ratePoint}{" "}
+                            <span className="text-primary-150">({item.countRate})</span>
+                          </p>
+                        </div>
+                        <div className="flex items-center justify-start">
+                          <MdLocationOn size={14} />
+                          <p className="text-xs text-primary-150">{provinceName[index]}</p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
-                    <div className="flex flex-col items-center justify-center gap-3">
-                      Deco phòng khách
-                    </div>
-                  </div>
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
-                    <div className="flex flex-col items-center justify-center gap-3">
-                      Chuông cửa thông minh
-                    </div>
-                  </div>
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
-                    <div className="flex flex-col items-center justify-center gap-3">
-                      Balo Da chất lượng cao
-                    </div>
-                  </div>
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
-                    <div className="flex flex-col items-center justify-center gap-3">
-                      Tai nghe thông minh
-                    </div>
-                  </div>
-                  <div className="flex-none px-3 py-6 first:pl-6 last:pr-6">
-                    <div className="flex flex-col items-center justify-center gap-3">
-                      Zắc kết nối tai nghe
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-4 gap-6">
-              <div className="rounded bg-gradient-to-b from-primary-460 to-white px-2 py-4 text-start text-primary-350">
-                <div className="pb-3 text-xl text-primary-450">Ẩm thực nổi bật</div>
-                <ul className="flex flex-col gap-3">
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex1 className="col-span-1" />
-                    <p className="col-span-2 line-clamp-3">
-                      Thịt trâu gác bếp tây bắc Hoa Ban food
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex1 className="col-span-1" />
-                    <p className="col-span-2 line-clamp-3">
-                      Thịt dê núi Ninh Bình Đặc sản rừng núi
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex1 className="col-span-1" />
-                    <p className="col-span-2 line-clamp-3">Chân giò Lã vọng Đặc sản Tây bắc</p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex1 className="col-span-1" />
-                    <p className="col-span-2 line-clamp-3">Thịt lợn gác bếp Đặc sản Tây ninh</p>
-                  </li>
-                  <li className="grid grid-cols-3 gap-3">
-                    <Ex1 className="col-span-1" />
-                    <p className="col-span-2 line-clamp-3">Combo Hải sản 4 người Hải sản tươi</p>
-                  </li>
-                </ul>
-              </div>
-              <div className="rounded bg-gradient-to-b from-primary-470 to-white px-2 py-4 text-start text-primary-350">
-                <div className="pb-3 text-xl text-primary-450">Sản phẩm đề xuất</div>
-                <ul className="flex flex-col gap-3">
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex2 className="col-span-1" />
-                    <p className="col-span-2 line-clamp-3">
-                      Tú đựng cơm văn phòng nhỏ nhắn tiện dụng
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex2 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Đèn bàn học HY2266 Bóng LED Chống Cận Bảo Vệ Mắt
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex2 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Đèn treo trang trí phòng ngủ, học, phòng khách
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex2 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Đèn trần phòng khách Macaron Hiện Đại Bắc Âu Đèn led
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex2 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Máy hút bụi giường nệm diệt khuẩn UV thế hệ mới
-                    </p>
-                  </li>
-                </ul>
-              </div>
-              <div className="rounded bg-gradient-to-b from-primary-480 to-white px-2 py-4 text-start text-primary-350">
-                <div className="pb-3 text-xl text-primary-450">Thiết bị thông minh</div>
-                <ul className="flex flex-col gap-3">
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex3 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">Thiết bị định vị thông minh Xiaomi</p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex3 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Thiết bị định vị thông minh chống thất lạc cho trẻ em
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex3 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Công tắc thông minh điều khiển hai chiều được sản xuât tại nhật
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex3 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Bộ smart home cơ bản AQARA STARTER KIT
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex3 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Camera an ninh thông minh có kết nối Wifi
-                    </p>
-                  </li>
-                </ul>
-              </div>
-              <div className="rounded bg-gradient-to-b from-primary-490 to-white px-2 py-4 text-start text-primary-350">
-                <div className="pb-3 text-xl text-primary-450">Set quà tặng nổi bật</div>
-                <ul className="flex flex-col gap-3">
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex4 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      {" "}
-                      Hộp quà tặng Saffron Nhụy Hoa Nghệ Tây Jahan
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex4 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Set quà tặng mẹ Saffron ngâm mật ong 130gr
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex4 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Set quà Saffron ngâm mật ong 130gr thương hiệu Saffron
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex4 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Hộp Quà Trà Hoa Sấy Lạnh Enjoy Tea, Quà Tặng Sức Khỏe
-                    </p>
-                  </li>
-                  <li className="flex flex-col md:grid md:grid-cols-3 md:gap-3">
-                    <Ex4 className="col-span-1" />
-
-                    <p className="col-span-2 line-clamp-3">
-                      Set quà tặng Nhụy Hoa Nghệ Tây Saffron Jahan
-                    </p>
-                  </li>
-                </ul>
-              </div>
+                  );
+                })}
             </div>
           </div>
         </div>
@@ -277,4 +118,4 @@ function shoppingSearchResult() {
   );
 }
 
-export default shoppingSearchResult;
+export default ShoppingSearchResult;

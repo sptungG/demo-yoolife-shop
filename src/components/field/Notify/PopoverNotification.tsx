@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { Dialog, DialogTrigger, OverlayArrow, Popover } from "react-aria-components";
-import { Bell } from "../icons";
+import { Bell } from "../../icons";
 import Notification from "./Notification";
 import OverlayButton from "./OverlayButton";
 

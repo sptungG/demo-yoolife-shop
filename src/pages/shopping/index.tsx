@@ -30,8 +30,6 @@ import {
   useGetItemsByUserQuery,
   useGetItemsQuery,
 } from "src/redux/query/item.query";
-// import { Items } from "src/types/item.types";
-// import { useGetAllTenantNameQuery } from "src/redux/query/auth.query";
 function ShoppingPage() {
   const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery();
   const { data: userCategory, isLoading: isLoadingUserCategory } = useGetItemsQuery();
@@ -41,27 +39,23 @@ function ShoppingPage() {
   console.log(userCategory);
   console.log(userAllItems);
 
-  // console.log(data?.result);
-
-  // const items = data?.result?.data;
-  // console.log(items);
-  // const userDataItems = userData?.result.data;
-  // const userCategories = userCategory?.result.data;
-
   const elecDevice = (userCategory?.result.data || []).filter(
     (item: any) => item.name === "Thiết bị điện",
   );
+
   const smartDevice = (userCategory?.result.data || []).filter(
     (item: any) => item.name === "Thiết bị thông minh",
   );
+
   const topSearch = (userCategory?.result.data || []).filter(
     (item: any) => item.name === "Thiết bị thông minh",
   );
+
   const otherItems = userCategory?.result.data || [];
-  // console.log(items);
-  //console.log(elecDevice[0].id)
-  //const categories = (userCategory?.result.data || []).filter((item: any) => item.parentId === elecDevice[0].id);
-  // console.log(categories)
+  console.log(otherItems);
+  console.log(elecDevice);
+  console.log(smartDevice);
+  console.log(topSearch);
 
   return (
     <>
@@ -115,7 +109,7 @@ function ShoppingPage() {
               <div className="col-span-2">
                 <ListProducts />
               </div>
-              <div className=" col-span-3 bg-primary-250 py-2 pl-6">
+              <div className=" col-span-3 rounded-e-lg bg-primary-250 py-2 pl-6">
                 <div className="relative text-start">
                   <div className="relative py-1 before:absolute before:-left-3 before:top-4 before:h-1 before:w-1 before:rounded before:bg-primary-150 xl:py-2">
                     Thiết bị thường

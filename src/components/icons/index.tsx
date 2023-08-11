@@ -31,6 +31,7 @@ import Ex1 from "./ex1.svg";
 import Ex2 from "./ex2.svg";
 import Ex3 from "./ex3.svg";
 import Ex4 from "./ex4.svg";
+import Filter from "./filterIcon.svg";
 import Fix from "./fix.svg";
 import Flashsale1 from "./flashsale1.svg";
 import Flashsale2 from "./flashsale2.svg";
@@ -55,6 +56,7 @@ import SearchIcon from "./search.svg";
 import SecureDevice from "./securedevice.svg";
 import Sensor from "./sensor.svg";
 import SettingsNo from "./settings.svg";
+import SettingsFilter from "./settingsFilter.svg";
 import SettingsYes from "./settingsyes.svg";
 import ShoppingCart from "./shoppingcart.svg";
 import SmartDevice from "./smartdevice.svg";
@@ -93,6 +95,7 @@ export {
   Ex2,
   Ex3,
   Ex4,
+  Filter,
   Fix,
   Flashsale1,
   Flashsale2,
@@ -122,6 +125,7 @@ export {
   SecureDevice,
   Sensor,
   Service,
+  SettingsFilter,
   SettingsNo,
   SettingsYes,
   Shopping,

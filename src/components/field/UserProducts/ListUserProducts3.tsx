@@ -4,7 +4,10 @@ import { Top2 } from "src/components/icons";
 import { useGetItemsByUserQuery, useGetItemsQuery } from "src/redux/query/item.query";
 
 function ListUserProducts3({ id, title }: { id: number; title: string }) {
-  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery();
+  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery({
+    search: "name",
+    id: 2,
+  });
   const { data: userCategory, isLoading: isLoadingUserCategory } = useGetItemsQuery();
   // const { data: userAllItems, isLoading: isLoadingAllItems } = useGetAllItemsQuery();
   // const items = userData?.result.data.filter((item: any) => (item.categoryId = id));
@@ -45,7 +48,7 @@ function ListUserProducts3({ id, title }: { id: number; title: string }) {
                   />
                   <Top2 className="absolute bottom-0 left-0 h-6 rounded-bl-lg" />
                 </div>
-                <div className="line-clamp-1 pt-2 text-lg font-medium text-primary-150">
+                <div className="line-clamp-1 pt-2 text-lg font-medium text-primary-150 lg:text-sm">
                   {item.name}
                 </div>
               </div>

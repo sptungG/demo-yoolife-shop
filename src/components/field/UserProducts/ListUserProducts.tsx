@@ -5,7 +5,10 @@ import { MdLocationOn, MdStar } from "react-icons/md";
 import { useGetItemsByUserQuery, useGetItemsQuery } from "src/redux/query/item.query";
 
 function ListUserProducts({ id, title }: { id: number; title: string }) {
-  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery();
+  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery({
+    search: "name",
+    id: 2,
+  });
   const { data: userCategory, isLoading: isLoadingUserCategory } = useGetItemsQuery();
 
   const [items, setItems] = useState(userData?.result.data.slice(0, 5));
@@ -27,10 +30,7 @@ function ListUserProducts({ id, title }: { id: number; title: string }) {
         {!!items &&
           items?.map((item: any, index) => {
             return (
-              <div
-                key={item.id}
-                className="relative cursor-pointer rounded-3xl bg-primary-250 p-2 "
-              >
+              <div key={item.id} className="relative cursor-pointer rounded-xl bg-primary-250 p-2 ">
                 <img
                   src={`${item.imageUrlList[0]}`}
                   className="aspect-square w-full rounded-lg bg-contain object-cover "
@@ -41,27 +41,29 @@ function ListUserProducts({ id, title }: { id: number; title: string }) {
                       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
                   }}
                 />
-                <div className="line-clamp-2 overflow-hidden pb-2 pt-2 text-xl font-semibold text-primary-150 lg:text-base">
+                <div className="line-clamp-2 pt-2 text-lg font-semibold text-primary-150 lg:text-xs">
                   {item.name}
                 </div>
-                <div className="flex items-center justify-between ">
+                <div className="grid grid-cols-1 items-center sm:flex sm:justify-between ">
                   <div className="flex items-center justify-between ">
-                    <div className="my-1 flex h-4 items-center rounded-md  bg-gradient-to-r from-primary-1500 to-primary-1600 px-1 text-[10px] text-white xl:px-3">
+                    <div className="my-1 flex items-center rounded bg-gradient-to-r from-primary-1500 to-primary-1600 px-1 text-lg text-white lg:h-4 lg:text-[10px] xl:px-2 xl:text-xs">
                       {item.minPrice}đ
                     </div>
                   </div>
-                  <div className=" text-[10px] text-primary-150 line-through">{item.maxPrice}đ</div>
+                  <div className=" text-lg text-primary-150 line-through lg:text-[10px] xl:text-xs">
+                    {item.maxPrice}đ
+                  </div>
                 </div>
                 <div className="flex justify-between text-xl text-yellow-400 ">
                   <div className="flex items-center justify-between">
-                    <MdStar size={14} />
-                    <p className="text-xs text-primary-50">
+                    <MdStar className="h-4 w-4 lg:h-3.5 lg:w-3.5" />
+                    <p className="text-base text-primary-50 lg:text-xs">
                       {item.ratePoint} <span className="text-primary-150">({item.countRate})</span>
                     </p>
                   </div>
                   <div className="flex items-center justify-between">
-                    <MdLocationOn size={14} />
-                    <p className="text-xs text-primary-150">{provinceName[index]}</p>
+                    <MdLocationOn className="h-4 w-4 lg:h-3.5 lg:w-3.5" />
+                    <p className="text-base text-primary-150 lg:text-xs">{provinceName[index]}</p>
                   </div>
                 </div>
               </div>

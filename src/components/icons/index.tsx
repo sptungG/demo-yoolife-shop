@@ -6,6 +6,16 @@ import ForumYes from "./Forumyes.svg";
 import NoImagePlaceholder from "./NoImagePlaceholder.svg";
 import Research from "./Research.svg";
 import Service from "./Service.svg";
+import ShopChat from "./ShopChat.svg";
+import ShopFollow from "./ShopFollow.svg";
+import ShopFollowers from "./ShopFollowers.svg";
+import ShopIcon from "./ShopIcon.svg";
+import ShopItem from "./ShopItem.svg";
+import ShopLikes from "./ShopLikes.svg";
+import ShopParticipated from "./ShopParticipated.svg";
+import ShopProducts from "./ShopProducts.svg";
+import ShopRemark from "./ShopRemark.svg";
+import ShopSold from "./ShopSold.svg";
 import Shopping from "./Shopping.svg";
 import Subtractdown from "./Subtractdown.svg";
 import Subtractup from "./Subtractup.svg";
@@ -62,6 +72,7 @@ import ShoppingCart from "./shoppingcart.svg";
 import SmartDevice from "./smartdevice.svg";
 import SmartLock from "./smartlock.svg";
 import Sports from "./sports.svg";
+import SunHouse from "./sunhouse.svg";
 import TiktokIcon from "./tiktokIcon.svg";
 import Top1 from "./top1.svg";
 import Top2 from "./top2.svg";
@@ -128,6 +139,16 @@ export {
   SettingsFilter,
   SettingsNo,
   SettingsYes,
+  ShopChat,
+  ShopFollow,
+  ShopFollowers,
+  ShopIcon,
+  ShopItem,
+  ShopLikes,
+  ShopParticipated,
+  ShopProducts,
+  ShopRemark,
+  ShopSold,
   Shopping,
   ShoppingCart,
   SmartDevice,
@@ -135,6 +156,7 @@ export {
   Sports,
   Subtractdown,
   Subtractup,
+  SunHouse,
   TiktokIcon,
   Top1,
   Top2,

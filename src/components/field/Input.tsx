@@ -1,5 +1,6 @@
-import { forwardRef, ForwardRefRenderFunction, InputHTMLAttributes, ReactElement } from "react";
+import { forwardRef, ForwardRefRenderFunction, InputHTMLAttributes } from "react";
 import { AriaFieldProps, useField } from "react-aria";
+import { TextField } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 
 export type TBaseInputProps = InputHTMLAttributes<HTMLInputElement>;
@@ -37,8 +38,8 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, TInputProps> = (
   });
   return (
     <div className={twMerge("relative ", classNameWrapper)}>
-      <div className="group relative">
-      {!!prefix && (
+      <TextField className="group relative">
+        {!!prefix && (
           <div
             className={twMerge(
               "absolute inset-y-0 left-0 flex select-none items-center",
@@ -70,7 +71,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, TInputProps> = (
             {suffix}
           </div>
         )}
-      </div>
+      </TextField>
 
       {errorMessage && (
         <div

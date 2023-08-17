@@ -6,10 +6,10 @@ import OverlayButton from "./OverlayButton";
 
 function PopoverNotification() {
   return (
-    <div className="z-10 flex cursor-pointer items-start justify-center rounded-lg bg-primary-250">
+    <div className="z-10 mr-2 flex h-12 cursor-pointer items-start justify-center rounded-full bg-primary-250">
       <DialogTrigger>
-        <OverlayButton aria-label="Notifications">
-          <span className=" mr-1 text-lg text-primary-150">25</span>
+        <OverlayButton aria-label="Notifications" className="rounded-full">
+          <span className=" mr-1 text-base text-primary-150 xl:text-lg">25</span>
           <Bell className="h-5 w-5 text-white" aria-hidden="true" />
         </OverlayButton>
         <MyPopover className="group w-[280px] data-[placement=bottom]:mt-2 data-[placement=top]:mb-2">

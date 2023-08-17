@@ -21,8 +21,8 @@ function RightTaskbar() {
               <Avatar className="h-14 w-14" />
             </div>
             <div className="pl-2 text-start">
-              <div>Chử Hoàng</div>
-              <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
+              <div className="lg:text-xs xl:text-base">Chử Hoàng</div>
+              <div className="relative after:absolute after:rounded-full after:bg-green-500 lg:text-xs lg:after:right-3 lg:after:top-1.5 lg:after:h-2 lg:after:w-2 xl:text-base xl:after:right-4 xl:after:top-2 xl:after:h-3 xl:after:w-3">
                 Online
               </div>
             </div>
@@ -32,8 +32,8 @@ function RightTaskbar() {
               <Avatar className="h-14 w-14" />
             </div>
             <div className="pl-2 text-start">
-              <div>Chử Hoàng</div>
-              <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
+              <div className="lg:text-xs xl:text-base">Chử Hoàng</div>
+              <div className="relative after:absolute after:rounded-full after:bg-green-500 lg:text-xs lg:after:right-3 lg:after:top-1.5 lg:after:h-2 lg:after:w-2 xl:text-base xl:after:right-4 xl:after:top-2 xl:after:h-3 xl:after:w-3">
                 Online
               </div>
             </div>
@@ -43,8 +43,8 @@ function RightTaskbar() {
               <Avatar className="h-14 w-14" />
             </div>
             <div className="pl-2 text-start">
-              <div>Chử Hoàng</div>
-              <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
+              <div className="lg:text-xs xl:text-base">Chử Hoàng</div>
+              <div className="relative after:absolute after:rounded-full after:bg-green-500 lg:text-xs lg:after:right-3 lg:after:top-1.5 lg:after:h-2 lg:after:w-2 xl:text-base xl:after:right-4 xl:after:top-2 xl:after:h-3 xl:after:w-3">
                 Online
               </div>
             </div>
@@ -54,8 +54,8 @@ function RightTaskbar() {
               <Avatar className="h-14 w-14" />
             </div>
             <div className="pl-2 text-start">
-              <div>Chử Hoàng</div>
-              <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
+              <div className="lg:text-xs xl:text-base">Chử Hoàng</div>
+              <div className="relative after:absolute after:rounded-full after:bg-green-500 lg:text-xs lg:after:right-3 lg:after:top-1.5 lg:after:h-2 lg:after:w-2 xl:text-base xl:after:right-4 xl:after:top-2 xl:after:h-3 xl:after:w-3">
                 Online
               </div>
             </div>
@@ -65,8 +65,8 @@ function RightTaskbar() {
               <Avatar className="h-14 w-14" />
             </div>
             <div className="pl-2 text-start">
-              <div>Chử Hoàng</div>
-              <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
+              <div className="lg:text-xs xl:text-base">Chử Hoàng</div>
+              <div className="relative after:absolute after:rounded-full after:bg-green-500 lg:text-xs lg:after:right-3 lg:after:top-1.5 lg:after:h-2 lg:after:w-2 xl:text-base xl:after:right-4 xl:after:top-2 xl:after:h-3 xl:after:w-3">
                 Online
               </div>
             </div>
@@ -76,8 +76,52 @@ function RightTaskbar() {
               <Avatar className="h-14 w-14" />
             </div>
             <div className="pl-2 text-start">
-              <div>Chử Hoàng</div>
-              <div className="relative after:absolute after:right-4 after:top-2 after:h-3 after:w-3 after:rounded-full after:bg-green-500">
+              <div className="lg:text-xs xl:text-base">Chử Hoàng</div>
+              <div className="relative after:absolute after:rounded-full after:bg-green-500 lg:text-xs lg:after:right-3 lg:after:top-1.5 lg:after:h-2 lg:after:w-2 xl:text-base xl:after:right-4 xl:after:top-2 xl:after:h-3 xl:after:w-3">
+                Online
+              </div>
+            </div>
+          </div>
+          <div className="flex items-start justify-start">
+            <div>
+              <Avatar className="h-14 w-14" />
+            </div>
+            <div className="pl-2 text-start">
+              <div className="lg:text-xs xl:text-base">Chử Hoàng</div>
+              <div className="relative after:absolute after:rounded-full after:bg-green-500 lg:text-xs lg:after:right-3 lg:after:top-1.5 lg:after:h-2 lg:after:w-2 xl:text-base xl:after:right-4 xl:after:top-2 xl:after:h-3 xl:after:w-3">
+                Online
+              </div>
+            </div>
+          </div>
+          <div className="flex items-start justify-start">
+            <div>
+              <Avatar className="h-14 w-14" />
+            </div>
+            <div className="pl-2 text-start">
+              <div className="lg:text-xs xl:text-base">Chử Hoàng</div>
+              <div className="relative after:absolute after:rounded-full after:bg-green-500 lg:text-xs lg:after:right-3 lg:after:top-1.5 lg:after:h-2 lg:after:w-2 xl:text-base xl:after:right-4 xl:after:top-2 xl:after:h-3 xl:after:w-3">
+                Online
+              </div>
+            </div>
+          </div>
+          <div className="flex items-start justify-start">
+            <div>
+              <Avatar className="h-14 w-14" />
+            </div>
+            <div className="pl-2 text-start">
+              <div className="lg:text-xs xl:text-base">Chử Hoàng</div>
+              <div className="relative after:absolute after:rounded-full after:bg-green-500 lg:text-xs lg:after:right-3 lg:after:top-1.5 lg:after:h-2 lg:after:w-2 xl:text-base xl:after:right-4 xl:after:top-2 xl:after:h-3 xl:after:w-3">
+                Online
+              </div>
+            </div>
+          </div>
+          <div className="flex items-start justify-start">
+            <div>
+              <Avatar className="h-14 w-14" />
+            </div>
+            <div className="pl-2 text-start">
+              <div className="lg:text-xs xl:text-base">Chử Hoàng</div>
+              <div className="relative after:absolute after:rounded-full after:bg-green-500 lg:text-xs lg:after:right-3 lg:after:top-1.5 lg:after:h-2 lg:after:w-2 xl:text-base xl:after:right-4 xl:after:top-2 xl:after:h-3 xl:after:w-3">
                 Online
               </div>
             </div>

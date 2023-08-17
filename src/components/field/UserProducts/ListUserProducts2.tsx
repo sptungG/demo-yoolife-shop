@@ -4,14 +4,18 @@ import { Tops2 } from "src/components/icons";
 import { useGetItemsByUserQuery, useGetItemsQuery } from "src/redux/query/item.query";
 
 function ListUserProducts2({ id, title }: { id: number; title: string }) {
-  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery();
+  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery({
+    search: "name",
+    id: 2,
+  });
   const { data: userCategory, isLoading: isLoadingUserCategory } = useGetItemsQuery();
   // const { data: userAllItems, isLoading: isLoadingAllItems } = useGetAllItemsQuery();
   // const items = userData?.result.data.filter((item: any) => (item.categoryId = id));
   //const items = (userData?.result.data || []).filter((item: any) => item.categoryId === id);
 
   const items = userData?.result.data;
-  const eDevices = items?.filter((item: any) => item.categoryId === id);
+  const eDevices = userData?.result.data;
+  //const eDevices = items?.filter((item: any) => item.categoryId === id);
   const elecDevices = eDevices?.slice(0, 8);
 
   console.log(elecDevices);
@@ -42,7 +46,7 @@ function ListUserProducts2({ id, title }: { id: number; title: string }) {
                       }}
                     />
                     <Tops2 className="w-full" />
-                    <div className="line-clamp-1 pt-2 text-center text-lg font-medium  text-primary-150">
+                    <div className="line-clamp-1 pt-2 text-center text-sm font-medium  text-primary-150">
                       {item.name}
                     </div>
                   </div>

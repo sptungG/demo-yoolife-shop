@@ -23,11 +23,11 @@ export const itemApi = createApi({
       }),
       providesTags: [{ type: "Get", id: "GetAllCategories" }],
     }),
-    getItemsByUser: build.query<TItemsResponse<DataItems<ItemsDetail>>, void>({
+    getItemsByUser: build.query<TItemsResponse<DataItems<ItemsDetail>>, any>({
       query: (data) => ({
         url: "/api/services/app/Item/GetAllItemsByUser",
         method: "get",
-        body: data,
+        params: { ...data },
       }),
       providesTags: [{ type: "Get", id: "GetItemsByUser" }],
     }),

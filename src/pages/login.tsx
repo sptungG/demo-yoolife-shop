@@ -96,7 +96,7 @@ function Login() {
         <div className="absolute inset-0">
           <Image className="bg-contain" src={backgroundImage} alt="background image" fill />
         </div>
-        <div className="relative flex w-full py-6">
+        <div className="relative flex w-full items-center justify-center py-6">
           <div className="mx-auto flex w-full max-w-[1000px] justify-center md:justify-between ">
             <div className=" hidden self-center text-center text-2xl font-light md:block ">
               <YoolifeIContent className="lg:h-96 lg:w-96" />
@@ -107,10 +107,10 @@ function Login() {
               onSubmit={handleSubmit(onSubmit)}
               className="z-10 me-0 flex w-fit flex-col rounded-2xl bg-white p-8 md:me-8 lg:me-0 "
             >
-              <span className="text-center text-2xl font-semibold text-primary-50">
+              <span className="text-center text-lg font-semibold text-primary-50 lg:text-2xl">
                 Trải nghiệm và khám phá
               </span>
-              <span className="mb-5 text-center text-2xl font-semibold text-primary-50">
+              <span className="mb-5 text-center text-lg font-semibold text-primary-50 lg:text-2xl">
                 Cùng với YooLife
               </span>
               <div className="flex flex-col gap-6">
@@ -129,7 +129,7 @@ function Login() {
                   errorMessage={errors.password?.message}
                 />
               </div>
-              <div className="mt-8 flex items-start justify-between">
+              <div className="mt-8 flex items-start justify-between text-sm lg:text-base">
                 <Controller
                   control={control}
                   render={({ field: { onChange } }) => (

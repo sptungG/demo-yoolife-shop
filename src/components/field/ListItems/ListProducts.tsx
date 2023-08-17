@@ -12,7 +12,7 @@ function ListProducts() {
         aria-label="Productss"
         selectionMode="multiple"
         selectionBehavior="replace"
-        className="flex h-96 w-72 flex-col gap-2 overflow-auto rounded-lg bg-white text-gray-700 shadow outline-none"
+        className="flex h-[420px] w-72 flex-col gap-2 overflow-auto rounded-lg bg-white text-gray-700 shadow outline-none lg:h-[320px] xl:h-[380px]"
       >
         <ProductSection title="">
           {!!items &&

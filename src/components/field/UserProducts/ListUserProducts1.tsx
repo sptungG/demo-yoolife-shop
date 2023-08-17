@@ -4,15 +4,18 @@ import { MapLocation } from "src/components/icons";
 import { useGetItemsByUserQuery } from "src/redux/query/item.query";
 
 function ListUserProducts1({ id, title }: { id: number; title: string }) {
-  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery();
+  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery({
+    search: "name",
+    id: 2,
+  });
   //const { data: userCategory, isLoading: isLoadingUserCategory } = useGetItemsQuery();
   // const { data: userAllItems, isLoading: isLoadingAllItems } = useGetAllItemsQuery();
   // const items = userData?.result.data.filter((item: any) => (item.categoryId = id));
   //const items = (userData?.result.data || []).filter((item: any) => item.categoryId === id);
 
   const items = userData?.result.data;
-  const smartDevices = items?.filter((item: any) => item.categoryId === id);
-
+  //const smartDevices = items?.filter((item: any) => item.categoryId === id);
+  const smartDevices = userData?.result.data;
   console.log(smartDevices);
 
   const provinces = (items || []).map((item: any) => JSON.parse(item.address));
@@ -44,22 +47,24 @@ function ListUserProducts1({ id, title }: { id: number; title: string }) {
                         }}
                       />
                     </div>
-                    <div className="line-clamp-2 pt-2 text-sm text-primary-150">{item.name}</div>
+                    <div className="line-clamp-2 pt-2 text-lg text-primary-150 lg:text-xs">
+                      {item.name}
+                    </div>
 
-                    <div className="flex justify-between">
+                    <div className="grid grid-cols-1 sm:flex sm:justify-between">
                       <div className="flex items-center justify-between ">
-                        <div className="my-1 flex h-4 items-center  rounded-md bg-gradient-to-r from-primary-1700  to-primary-1800 px-1 text-[10px] text-white xl:px-3">
+                        <div className="my-1 flex items-center rounded bg-gradient-to-r  from-primary-1700 to-primary-1800 px-1  text-lg text-white lg:h-4 lg:text-[10px] xl:px-3 xl:text-xs">
                           50% Giảm
                         </div>
                       </div>
                       <div className="flex items-center justify-start">
-                        <MapLocation className="w-2.5 text-yellow-400 xl:w-3.5" />
-                        <div className=" flex h-4 items-center text-[10px] text-primary-150">
+                        <MapLocation className="w-4 first-line:text-yellow-400 lg:w-2.5 xl:w-3.5" />
+                        <div className=" flex items-center text-lg text-primary-150 lg:h-4 lg:text-[10px] xl:text-xs">
                           {provinceName[index]}
                         </div>
                       </div>
                     </div>
-                    <div className=" text-base font-semibold">{item.minPrice}đ</div>
+                    <div className="text-lg font-semibold lg:text-base">{item.minPrice}đ</div>
                   </div>
                 );
               })}

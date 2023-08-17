@@ -15,7 +15,7 @@ function ProductSection({
       <Header className="sticky top-0 z-10 flex bg-gradient-to-r from-primary-1500 to-primary-1600  text-lg font-semibold text-white">
         <div className="flex items-center justify-around px-4 py-3">
           <ListItem className="mr-2 h-6 w-6" />
-          <div className="text-sm ">Danh mục sản phẩm</div>
+          <div className="text-xs ">Danh mục sản phẩm</div>
         </div>
       </Header>
       <Collection items={items}>{children}</Collection>

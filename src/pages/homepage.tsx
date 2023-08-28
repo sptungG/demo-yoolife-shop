@@ -45,18 +45,18 @@ function HomePage() {
         <LeftTaskbar />
         <div className=" gap-2 bg-primary-250 md:col-span-4 md:col-start-2 lg:px-4">
           <div className="mb-2  flex justify-between bg-white px-2 pb-4 pt-12 sm:px-5">
-            <div className="relative flex items-center justify-between">
+            <div className="relative flex grow items-center ">
               <div className="mr-4 flex w-20 items-center justify-center rounded-full bg-primary-250 ">
-                <UserIcon className=" hidden w-7 py-2.5 lg:block" />
+                <UserIcon className=" hidden w-6 py-2.5 lg:block" />
               </div>
               <div className="absolute left-0 block cursor-pointer rounded bg-primary-250 lg:hidden">
                 <MenuDropdown />
               </div>
 
-              <div className="flex w-full items-center justify-start ">
+              <div className="flex  grow items-center justify-start ">
                 <InputSearchBar
                   // style={{ width: "670px" }}
-                  className=" h-12 rounded-full bg-primary-250 px-10 py-2.5 text-sm md:w-256 md:text-lg lg:w-48 xl:w-80 2xl:w-256"
+                  className=" grow rounded-full bg-primary-250 px-10 py-2.5 text-base"
                   placeholder="Bạn cần trợ giúp gì không?"
                 />
               </div>
@@ -64,7 +64,7 @@ function HomePage() {
             <div className="ml-1 flex items-center justify-between text-xl text-primary-350">
               <PopoverNotification />
 
-              <div className="flex h-12 cursor-pointer items-center justify-start gap-2 rounded-full bg-primary-250 p-2.5">
+              <div className="flex cursor-pointer items-center justify-start gap-2 rounded-full bg-primary-250 p-2.5">
                 <DropDown className="w-4 xl:w-6" />
                 <div className="hidden text-xs sm:block md:text-sm xl:text-base">Tiếng Việt</div>
                 <div className="text-xs sm:hidden">VIE</div>

@@ -31,6 +31,7 @@ export type TItemsResponse<DataItems extends any> = {
 };
 
 export type DataItems<ItemsDetail extends any> = {
+  id: number;
   data: Array<ItemsDetail>;
   error: any;
   message: string;
@@ -53,7 +54,6 @@ export type ItemsDetail = {
   address: string;
   viewCount: number;
 };
-
 
 export type TAllItemsResponse = {
   result: any;

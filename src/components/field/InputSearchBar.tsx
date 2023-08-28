@@ -11,7 +11,7 @@ const InputSearchbar: ForwardRefRenderFunction<HTMLInputElement, TInputPasswordP
   return (
     <Input
       style={{ backgroundColor: "#F1F2F8" }}
-      className="border-0"
+      className="grow border-0"
       ref={forwardedRef}
       {...props}
       type="text"

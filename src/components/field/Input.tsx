@@ -37,7 +37,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, TInputProps> = (
     validationState,
   });
   return (
-    <div className={twMerge("relative ", classNameWrapper)}>
+    <div className={twMerge("relative grow", classNameWrapper)}>
       <TextField className="group relative">
         {!!prefix && (
           <div

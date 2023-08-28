@@ -14,8 +14,8 @@ export const itemApi = createApi({
   reducerPath: "itemApi",
   baseQuery: baseQuery,
   tagTypes: ["Get"],
-  endpoints: (build) => ({
-    getItems: build.query<TCategoriesResponse<Data<Items>>, void>({
+  endpoints: (builder) => ({
+    getItems: builder.query<TCategoriesResponse<Data<Items>>, void>({
       query: (data) => ({
         url: "/api/services/app/AdminCategory/GetAllCategories",
         method: "get",
@@ -23,7 +23,7 @@ export const itemApi = createApi({
       }),
       providesTags: [{ type: "Get", id: "GetAllCategories" }],
     }),
-    getItemsByUser: build.query<TItemsResponse<DataItems<ItemsDetail>>, any>({
+    getItemsByUser: builder.query<TItemsResponse<DataItems<ItemsDetail>>, any>({
       query: (data) => ({
         url: "/api/services/app/Item/GetAllItemsByUser",
         method: "get",
@@ -31,7 +31,7 @@ export const itemApi = createApi({
       }),
       providesTags: [{ type: "Get", id: "GetItemsByUser" }],
     }),
-    getAllItems: build.query<TAllItemsResponse, void>({
+    getAllItems: builder.query<TAllItemsResponse, void>({
       query: (data) => ({
         url: "/api/services/app/Item/GetAllItemsMainPage",
         method: "get",
@@ -39,7 +39,7 @@ export const itemApi = createApi({
       }),
       providesTags: [{ type: "Get", id: "GetAllItems" }],
     }),
-    getProvince: build.query<String, void>({
+    getProvince: builder.query<String, void>({
       query: (data) => ({
         url: "/api/services/app/VietnameseAdministrative/GetAllProvinces",
         method: "get",

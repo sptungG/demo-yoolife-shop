@@ -1,10 +1,16 @@
+import { useRouter } from "next/router";
 import "react-dropdown/style.css";
 import { Ex1, Ex2, Ex3, Ex4, Trash } from "src/components/icons";
 import LeftTaskbar from "src/components/pages/LeftTaskbar";
 import RightTaskbar from "src/components/pages/RightTaskbar";
 import ShoppingHeader from "src/components/pages/ShoppingHeader";
 
-function shoppingSearch() {
+function ShoppingSearch() {
+  const router = useRouter();
+  function HandleSearchSuccess() {
+    router.replace(`/shopping/ShoppingSearchResult`);
+  }
+
   return (
     <>
       <div className="grid w-full grid-cols-1 text-center  lg:grid-cols-6">
@@ -249,4 +255,4 @@ function shoppingSearch() {
   );
 }
 
-export default shoppingSearch;
+export default ShoppingSearch;

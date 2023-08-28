@@ -6,7 +6,7 @@ import OverlayButton from "./OverlayButton";
 
 function PopoverNotification() {
   return (
-    <div className="z-10 mr-2 flex h-12 cursor-pointer items-start justify-center rounded-full bg-primary-250">
+    <div className="z-10 mr-2 flex cursor-pointer items-start justify-center rounded-full bg-primary-250">
       <DialogTrigger>
         <OverlayButton aria-label="Notifications" className="rounded-full">
           <span className=" mr-1 text-base text-primary-150 xl:text-lg">25</span>

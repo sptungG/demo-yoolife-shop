@@ -5,8 +5,7 @@ import { useGetItemsByUserQuery } from "src/redux/query/item.query";
 
 function ListUserProducts1({ id, title }: { id: number; title: string }) {
   const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery({
-    search: "name",
-    id: 2,
+    id: id,
   });
   //const { data: userCategory, isLoading: isLoadingUserCategory } = useGetItemsQuery();
   // const { data: userAllItems, isLoading: isLoadingAllItems } = useGetAllItemsQuery();

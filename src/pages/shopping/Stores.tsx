@@ -16,24 +16,34 @@ import ShopBackground from "src/components/images/ShopBackground.png";
 import LeftTaskbar from "src/components/pages/LeftTaskbar";
 import RightTaskbar from "src/components/pages/RightTaskbar";
 import ShoppingHeader from "src/components/pages/ShoppingHeader";
-import { useGetItemsByUserQuery } from "src/redux/query/item.query";
+import {
+  useGetAllItemsQuery,
+  useGetItemsByUserQuery,
+  useGetItemsQuery,
+} from "src/redux/query/item.query";
 function Stores() {
-  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery({
-    search: "name",
-    id: 2,
+  const { data: searchData, isLoading: isLoadingsearchData } = useGetItemsByUserQuery({
+    search: "iphone",
   });
 
-  const items = userData?.result.data;
+  const { data: userCategory, isLoading: isLoadingUserCategory } = useGetItemsQuery();
+  const { data: userData, isLoading: isLoadingUserData } = useGetAllItemsQuery();
+
+  console.log(searchData);
+  console.log(userCategory);
+  console.log(userData);
+
+  const items = searchData?.result.data;
   console.log(items);
   const provinces = (items || []).map((item: any) => JSON.parse(item.address));
-  const provinceName = provinces.map((item) => item.ProvinceName);
-
+  const provinceName = provinces.map((item: any) => item?.ProvinceName);
+  function handleSearchSuccess() {}
   return (
     <>
       <div className="grid w-full grid-cols-1 text-center  lg:grid-cols-6">
         <LeftTaskbar />
         <div className="flex flex-col gap-2 bg-primary-250 md:col-span-4 md:col-start-2 lg:px-4">
-          <ShoppingHeader />
+          <ShoppingHeader onSearchSuccess={handleSearchSuccess} />
 
           <div className=" bg-white px-5 pb-5 text-primary-350">
             <Image
@@ -104,7 +114,7 @@ function Stores() {
             </div>
             <div className="grid grid-cols-2  gap-4 text-start md:grid-cols-3 lg:grid-cols-5  lg:gap-2 xl:gap-4">
               {!!items &&
-                items?.map((item: any, index) => {
+                items?.map((item: any, index: any) => {
                   return (
                     <div
                       key={item.id}

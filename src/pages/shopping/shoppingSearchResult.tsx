@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import "react-dropdown/style.css";
 import { MdLocationOn, MdStar } from "react-icons/md";
 import FilterProducts from "src/components/field/filter/FilterProducts";
@@ -5,29 +6,30 @@ import FilterSearch from "src/components/field/filter/FilterSearch";
 import LeftTaskbar from "src/components/pages/LeftTaskbar";
 import RightTaskbar from "src/components/pages/RightTaskbar";
 import ShoppingHeader from "src/components/pages/ShoppingHeader";
-import {
-  useGetAllItemsQuery,
-  useGetItemsByUserQuery,
-  useGetItemsQuery,
-} from "src/redux/query/item.query";
-
+import { useGetItemsByUserQuery } from "src/redux/query/item.query";
 function ShoppingSearchResult() {
-  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery({
-    search: "name",
-    id: 2,
-  });
-  const { data: userCategory, isLoading: isLoadingUserCategory } = useGetItemsQuery();
-  const { data: userAllItems, isLoading: isLoadingAllItems } = useGetAllItemsQuery();
+  // const [items, setItems] = useState([]);
 
+  // const handleSearchSuccess = (result: any) => {
+  //   setItems(result);
+  // };
+  const router = useRouter();
+  const searchQuery = router.query.search as string;
+  console.log(searchQuery);
+  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery({
+    search: `${searchQuery}`,
+  });
   const items = userData?.result.data;
+  console.log(items);
 
   const provinces = (items || []).map((item: any) => JSON.parse(item.address));
   const provinceName = provinces.map((item) => item.ProvinceName);
+
   return (
     <>
-      <div className="grid w-full grid-cols-1 text-center  lg:grid-cols-6">
+      <div className="flex w-full text-center lg:grid  lg:grid-cols-6">
         <LeftTaskbar />
-        <div className=" gap-2 bg-primary-250 md:col-span-4 md:col-start-2 lg:px-4">
+        <div className="w-full  gap-2 bg-primary-250 md:col-span-4 md:col-start-2 lg:px-4">
           <ShoppingHeader />
           <div className="mb-2 flex items-center justify-between bg-white px-5 pb-4 pt-2  text-xl font-semibold text-primary-350">
             <FilterProducts />
@@ -35,7 +37,11 @@ function ShoppingSearchResult() {
           </div>
           <div className="mb-2 bg-white px-5 pb-4 pt-2  text-xl font-semibold text-primary-350">
             <div className="grid grid-cols-2  gap-4 text-start md:grid-cols-3 lg:grid-cols-5  lg:gap-2 xl:gap-4">
-              {!!items &&
+              {items?.length === 0 ? (
+                <div className="col-span-2 flex items-center justify-center text-lg md:col-span-3 lg:col-span-5">
+                  Hiện chưa có sản phẩm phù hợp
+                </div>
+              ) : (
                 items?.map((item: any, index) => {
                   return (
                     <div
@@ -82,7 +88,8 @@ function ShoppingSearchResult() {
                       </div>
                     </div>
                   );
-                })}
+                })
+              )}
             </div>
           </div>
         </div>

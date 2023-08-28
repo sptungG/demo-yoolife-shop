@@ -1,35 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TUser } from "../../types/user.types";
-import { authApi } from "../query/auth.query";
-import { userApi } from "../query/user.query";
-
-type TState = { data: TUser | null };
+import { Items } from "../../types/item.types";
+import { itemApi } from "../query/item.query";
+type TState = { data: Items | null };
 const initialState: TState = {
   data: null,
 };
 
-const userItem = createSlice({
-  name: "user",
+const itemSlice = createSlice({
+  name: "item",
   initialState,
   reducers: {
-    setUser(state, action: PayloadAction<TUser | null>) {
+    setItem(state, action: PayloadAction<Items | null>) {
       if (action.payload == null) state.data = null;
       else state.data = { ...state.data, ...action.payload };
     },
   },
   extraReducers: (builder) => {
-    builder.addMatcher(userApi.endpoints.getCurrentUser.matchFulfilled, (state, { payload }) => {
+    builder.addMatcher(itemApi.endpoints.getItemsByUser.matchFulfilled, (state, { payload }) => {
       state.data = payload.result;
-    });
-    builder.addMatcher(authApi.endpoints.logout.matchFulfilled, (state, { payload }) => {
-      state.data = null;
-    });
-    builder.addMatcher(authApi.endpoints.logout.matchRejected, (state, { payload }) => {
-      state.data = null;
     });
   },
 });
 
-export const { setUser } = userItem.actions;
+export const { setItem } = itemSlice.actions;
 
-export default userItem.reducer;
+export default itemSlice.reducer;

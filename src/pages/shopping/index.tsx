@@ -27,10 +27,7 @@ import {
   useGetItemsQuery,
 } from "src/redux/query/item.query";
 function ShoppingPage() {
-  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery({
-    search: "name",
-    id: 2,
-  });
+  const { data: userData, isLoading: isLoadingUserData } = useGetItemsByUserQuery({});
   const { data: userCategory, isLoading: isLoadingUserCategory } = useGetItemsQuery();
   const { data: userAllItems, isLoading: isLoadingAllItems } = useGetAllItemsQuery();
 
@@ -55,7 +52,7 @@ function ShoppingPage() {
   console.log(elecDevice);
   console.log(smartDevice);
   console.log(topSearch);
-
+  function handleSearchSuccess() {}
   return (
     <>
       <div className="grid w-full grid-cols-1 text-center  lg:grid-cols-6">

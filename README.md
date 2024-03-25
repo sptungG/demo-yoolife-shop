@@ -18,8 +18,6 @@
     </table>
 </div>
 
-# iMAX SmartSupplier Web
-
 ## Công nghệ sử dụng:
 
 - [Nextjs](https://nextjs.org/docs/getting-started) Typescript (Using Pages Router)

@@ -1,0 +1,24 @@
+export type TProvider = {
+  name: string;
+  email: string;
+  description: string;
+  phoneNumber: string;
+  imageUrls: string[];
+  ownerInfo: string;
+  type: 221;
+  groupType: 2;
+  latitude: 37.785834;
+  longitude: -122.406417;
+  properties: string;
+  state: 2;
+  districtId: string;
+  provinceId: string;
+  wardId: string;
+  address: string;
+  countRate: 3;
+  ratePoint: 4.33333;
+  ownerId: 10563;
+  creationTime: string;
+  serviceType: 1;
+  id: 10;
+};

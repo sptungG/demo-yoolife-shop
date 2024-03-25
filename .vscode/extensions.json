@@ -1,7 +1,11 @@
 {
   "recommendations": [
+    "steoates.autoimport",
+    "mhutchie.git-graph",
     "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "streetsidesoftware.code-spell-checker",
     "dbaeumer.vscode-eslint",
-    "bradlc.vscode-tailwindcss"
+    "streetsidesoftware.code-spell-checker-vietnamese"
   ]
 }

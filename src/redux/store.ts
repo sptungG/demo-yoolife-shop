@@ -1,40 +1,61 @@
-import { combineReducers, configureStore, isRejectedWithValue, Middleware } from "@reduxjs/toolkit";
+import { Middleware, combineReducers, configureStore, isRejectedWithValue } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { getPersistConfig } from "redux-deep-persist";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { authApi } from "./query/auth.query";
-import { userApi } from "./query/user.query";
-import authReducer, { setAccessToken, setRefreshToken } from "./reducer/auth.reducer";
-import themeReducer from "./reducer/theme.reducer";
-import userReducer, { setUser } from "./reducer/user.reducer";
+
+import { authApi } from "./query/auth-query";
+import { categoryApi } from "./query/category-query";
+import { itemApi } from "./query/item-query";
+import { itemAttributeApi } from "./query/itemAttribute-query";
+import { providerApi } from "./query/provider-query";
+import { vauApi } from "./query/province-query";
+import { userApi } from "./query/user-query";
+import { voucherApi } from "./query/voucher-query";
+import authReducer, {
+  setAccessToken,
+  setEncryptedAccessToken,
+  setFcmToken,
+  setRefreshToken,
+} from "./reducer/auth-reducer";
+import checkoutReducer from "./reducer/checkout-reducer";
+import userReducer, { setUser } from "./reducer/user-reducer";
 
 const reducers = combineReducers({
+  // ** Need to add after creating redux slice
   auth: authReducer,
   user: userReducer,
-  theme: themeReducer,
+  checkout: checkoutReducer,
+  // *** Need to add after createApi from redux-query
   [authApi.reducerPath]: authApi.reducer,
   [userApi.reducerPath]: userApi.reducer,
+  [providerApi.reducerPath]: providerApi.reducer,
+  [voucherApi.reducerPath]: voucherApi.reducer,
+  [itemApi.reducerPath]: itemApi.reducer,
+  [categoryApi.reducerPath]: categoryApi.reducer,
+  [itemAttributeApi.reducerPath]: itemAttributeApi.reducer,
+  [vauApi.reducerPath]: vauApi.reducer,
 });
 
-const persistReducerConfig = getPersistConfig({
-  key: "root",
-  version: 1,
-  storage: storage,
-  whitelist: ["auth", "theme"],
-  rootReducer: reducers,
-});
+// const persistedReducer = persistReducer(
+//   { key: "root", version: 1, storage: new CookieStorage(Cookies), whitelist: ["auth"] },
+//   reducers,
+// );
 
-const persistedReducer = persistReducer(persistReducerConfig, reducers);
+const persistedReducer = persistReducer(
+  { key: "root", version: 1, storage: storage, whitelist: ["auth"] },
+  reducers,
+);
 
 const rtkQueryErrorLogger: Middleware = (api) => (next) => (action) => {
   if (isRejectedWithValue(action)) {
-    if (process.env.NODE_ENV !== "production") console.warn("38:", action.payload);
+    if (process.env.NODE_ENV !== "production") console.warn("ErrorLogger:", action.payload);
     // [403, 500, "FETCH_ERROR"]
     if ([403].includes(action.payload.status)) {
       api.dispatch(setAccessToken(null));
       api.dispatch(setRefreshToken(null));
+      api.dispatch(setEncryptedAccessToken(null));
+      api.dispatch(setFcmToken(null));
       api.dispatch(setUser(null));
       window.history.replaceState({}, "", "/login");
     }
@@ -49,9 +70,18 @@ const rtkQueryErrorLogger: Middleware = (api) => (next) => (action) => {
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (gDM) =>
-    gDM({ serializableCheck: false }).concat(
-      userApi.middleware,
+    gDM({
+      serializableCheck: false,
+    }).concat(
+      // *** Need to add after createApi from redux-query
       authApi.middleware,
+      userApi.middleware,
+      itemApi.middleware,
+      providerApi.middleware,
+      categoryApi.middleware,
+      itemAttributeApi.middleware,
+      voucherApi.middleware,
+      vauApi.middleware,
       rtkQueryErrorLogger,
     ),
   devTools: process.env.NODE_ENV !== "production",

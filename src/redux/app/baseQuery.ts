@@ -1,7 +1,9 @@
 import { fetchBaseQuery, retry } from "@reduxjs/toolkit/query/react";
+import queryString from "query-string";
+
 import { RootState } from "../store";
 
-const baseQuery = retry(
+export const baseQuery = retry(
   fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_API_ENDPOINT as string,
     prepareHeaders: (headers, { getState }) => {
@@ -13,8 +15,8 @@ const baseQuery = retry(
       return headers;
     },
     validateStatus: (response, result) => response.status === 200,
+    paramsSerializer: (params) =>
+      queryString.stringify(params, { skipNull: true, skipEmptyString: true }),
   }),
   { maxRetries: 0 },
 );
-
-export default baseQuery;

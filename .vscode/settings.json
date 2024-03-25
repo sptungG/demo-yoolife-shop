@@ -1,7 +1,7 @@
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "eslint.workingDirectories": ["./"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -10,11 +10,8 @@
   },
   // https://ohdoylerules.com/snippets/autocomplete-tailwind-classes/
   "tailwindCSS.experimental.classRegex": [
-    ["twMerge\\(([^)]*)\\)", "'([^']*)'"], // twMerge("...")
-    ["Classes \\=([^;]*);", "'([^']*)'"], // XXXClasses = "..."
-    ["Class\\=([^;]*);", "'([^']*)'"], // XXXClasses = "..."
-    ["className \\=([^;]*);", "'([^']*)'"], // className = "..."
-    "className\\w+='([^']*)" // <div classNameXXX="..." />
+    ["cn\\(([^)]*)\\)", "'([^']*)'"], // cn("...")
+    "className\\w+=\"([^\"]*)", // <div classNameXXX="..." />
+    "className\\w+={\"([^\"}]*)" // <div classNameXXX="..." />
   ]
 }
-

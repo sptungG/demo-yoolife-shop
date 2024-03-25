@@ -1,79 +1,52 @@
-import { useObjectRef } from "@react-aria/utils";
-import { ForwardRefRenderFunction, forwardRef, memo, useId } from "react";
-import { AriaButtonProps, mergeProps, useButton, useFocusRing, useHover } from "react-aria";
-import { twMerge } from "tailwind-merge";
-import CircleLoading from "../shared/CircleLoading";
-import useRippleAnywhere from "../shared/useRippleAnywhere";
+import { ForwardRefRenderFunction, forwardRef } from "react";
+import { ButtonProps, Button as RAButton } from "react-aria-components";
 
-type TButtonProps = AriaButtonProps<"button"> & {
-  className?: string;
-  classNameHover?: string;
-  classNameDisabled?: string;
-  classNameFocus?: string;
-  classNameRipple?: string;
+import { cn } from "@/utils/utils";
+
+import CircleLoading from "../shared/circle-loading";
+
+type TVariantButton = "primary";
+type TButtonProps = ButtonProps & {
   isLoading?: boolean;
-  hideRipple?: boolean;
   icon?: React.ReactNode;
-  form?: string;
-  name?: string;
-  value?: string;
+  classNameHovered?: string;
+  classNameFocused?: string;
 };
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, TButtonProps> = (
-  {
-    className,
-    classNameHover,
-    classNameDisabled,
-    classNameFocus,
-    classNameRipple,
-    isLoading,
-    icon,
-    hideRipple,
-    ...props
-  },
+  { children, className, isLoading, icon, classNameFocused, classNameHovered, ...props },
   forwardedRef,
 ) => {
-  const uid = useId();
-  const { isDisabled, children } = props;
-  const domRef = useObjectRef(forwardedRef);
-  const { buttonProps } = useButton({ ...props, elementType: "button" }, domRef);
-  const { hoverProps, isHovered } = useHover({ isDisabled }); // https://react-spectrum.adobe.com/blog/building-a-button-part-2.html
-  const { focusProps, isFocusVisible } = useFocusRing(props);
-
-  const handleClick = useRippleAnywhere<HTMLButtonElement>(uid, classNameRipple);
-
   return (
-    <button
-      {...mergeProps(buttonProps, hoverProps, focusProps)}
-      onClick={(e) => {
-        !hideRipple && handleClick(e);
-      }}
-      id={uid}
-      ref={domRef}
-      className={twMerge(
-        "relative z-0 inline-flex max-w-full select-none items-center justify-center overflow-hidden rounded outline-none",
-        className,
-        isFocusVisible && [
-          "outline outline-2 outline-offset-2 outline-primary-500/50",
-          classNameFocus,
-        ],
-        isHovered && ["bg-opacity-80", classNameHover],
-        isDisabled && ["bg-gray-100 text-gray-500", classNameDisabled],
-      )}
+    <RAButton
+      ref={forwardedRef}
+      className={({ isHovered, isFocused, isDisabled }) =>
+        cn(
+          "relative inline-flex max-w-full items-center justify-center px-5 py-2.5 text-center outline-none",
+          className,
+          isHovered && classNameHovered,
+          isFocused && classNameFocused,
+        )
+      }
+      {...props}
     >
-      {isLoading ? (
-        <CircleLoading
-          classNameWrapper="mr-2 flex-shrink-0"
-          className="border-gray-100 border-t-primary-500"
-        />
-      ) : (
-        icon
+      {(values) => (
+        <>
+          {isLoading ? (
+            <CircleLoading
+              classNameWrapper="flex-shrink-0 absolute top-1/2 transform -translate-y-1/2 left-2.5 translate-x-1/2"
+              className="border-gray-100 border-t-green2-500"
+            />
+          ) : (
+            icon
+          )}
+          <div className="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
+            {typeof children === "function" ? children(values) : children}
+          </div>
+        </>
       )}
-      <div className="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
-        {children}
-      </div>
-    </button>
+    </RAButton>
   );
 };
 
-export default memo(forwardRef(Button));
+export default forwardRef(Button);

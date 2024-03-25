@@ -1,9 +1,10 @@
+const { createSecureHeaders } = require("next-secure-headers");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
-  compress: true,
-  experimental: { optimizeCss: true },
+  compress: process.env.NODE_ENV === "production",
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -21,6 +22,21 @@ const nextConfig = {
       ],
     });
     return config;
+  },
+  headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          ...createSecureHeaders(),
+          // HSTS Preload: https://hstspreload.org/
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+        ],
+      },
+    ];
   },
 };
 

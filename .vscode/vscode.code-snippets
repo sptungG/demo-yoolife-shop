@@ -8,25 +8,25 @@
   // Example:
   "Typescript React forwardRef component": {
     "scope": "typescriptreact",
-    "prefix": "rfc-forwardRef",
+    "prefix": "rafc-forwardRef",
     "body": [
       "import { forwardRef, ForwardRefRenderFunction } from 'react'",
       "",
       "type T${TM_FILENAME_BASE}Props = React.${3:HTML}Attributes<HTML${2:Div}Element> & {};",
       "",
-      "const Internal${TM_FILENAME_BASE}: ForwardRefRenderFunction<HTML${2:Div}Element,T${TM_FILENAME_BASE}Props> = (",
+      "const ${TM_FILENAME_BASE}: ForwardRefRenderFunction<HTML${2:Div}Element,T${TM_FILENAME_BASE}Props> = (",
       "  {},",
       "  forwardedRef,",
       ") => {",
       "  return <${1:div} ref={forwardedRef}>${TM_FILENAME_BASE}</${1:div}>",
       "};",
       "",
-      "export default forwardRef(Internal${TM_FILENAME_BASE});"
+      "export default forwardRef(${TM_FILENAME_BASE});"
     ]
   },
   "Typescript default React component": {
     "scope": "typescriptreact",
-    "prefix": "rfc-default",
+    "prefix": "rafc-default",
     "body": [
       "import React from 'react'",
       "",

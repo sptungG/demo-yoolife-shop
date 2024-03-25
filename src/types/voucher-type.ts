@@ -1,0 +1,32 @@
+import { TItem } from "./item-type";
+
+export type TVoucher = {
+  id: number;
+  providerId: number;
+  type: number;
+  scope: number;
+  description: null;
+  discountType: number;
+  voucherCode: string;
+  name: string;
+  quantity: number;
+  currentUsage: number;
+  minBasketPrice: number;
+  maxPrice: number;
+  percentage: number;
+  discountAmount: number;
+  dateStart: string;
+  dateEnd: string;
+  status: number;
+  isAdminCreate: false;
+  maxDistributionBuyer: number;
+  creatorUserId: number;
+  creationTime: string;
+  lastModificationTime: string;
+  listItems: TItem[];
+  displayChannelList: number[];
+  displayDateStart: string;
+  businessType: null;
+  userVoucherUsage: number;
+  isReceived: false;
+};
